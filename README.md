@@ -111,6 +111,19 @@
 
   This project is licensed under the **GNU General Public License v3.0** — see [LICENSE](LICENSE) for details.
 
+  
+
+  ## ❤️ Credits & Inspiration
+
+  This project acknowledges and credits @rukamori/ArchiveTune as a primary source of inspiration for design and feature ideas.
+
+  - Repository: https://github.com/rukamori/ArchiveTune
+  - Author: @rukamori
+
+  Thank you to rukamori for the inspiration; parts of the UI/UX and some feature concepts were adapted with respect and appreciation. If you are the original author and would like additional attribution or changes, please open an issue or submit a pull request and we'll update this section promptly.
+
+  
+
   © 2026 Shahdullah — [github.com/shahdullah](https://github.com/shahdullah)
 
   </div>
