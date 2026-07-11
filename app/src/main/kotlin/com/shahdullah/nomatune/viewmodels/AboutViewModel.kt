@@ -1,6 +1,11 @@
 /*
  * NomaTune (2026)
- * © Shahdullah — github.com/Shahdullah
+ * © Shahdullah — github.com/shahdullah
+ * GPL-3.0 License | Contributors: see git history
+ * Do not remove or alter this notice. - Per GPL-3.0 Section 4 & Section 5
+ *
+ * Based on ArchiveTune (2026)
+ * © Rukamori — github.com/rukamori
  * GPL-3.0 License | Contributors: see git history
  * Do not remove or alter this notice. - Per GPL-3.0 Section 4 & Section 5
  */
@@ -458,29 +463,17 @@ class AboutViewModel
                     ),
                 leadDeveloper =
                     TeamMember(
-                        avatarUrl = "https://avatars.githubusercontent.com/u/107134739?v=4",
-                        name = "morie",
+                        avatarUrl = "https://avatars.githubusercontent.com/Shahdullah",
+                        name = "Shahdullah",
                         positionResId = R.string.about_position_lead_dev,
-                        profileUrl = "https://github.com/rukamori",
+                        profileUrl = "https://github.com/Shahdullah",
                         links =
                             AboutLinkCollection.of(
                                 AboutLinkUiModel(
                                     id = "github",
                                     iconResId = R.drawable.github,
                                     labelResId = R.string.about_content_desc_github,
-                                    url = "https://github.com/rukamori",
-                                ),
-                                AboutLinkUiModel(
-                                    id = "website",
-                                    iconResId = R.drawable.website,
-                                    labelResId = R.string.about_content_desc_website,
-                                    url = "https://koiiverse.cloud",
-                                ),
-                                AboutLinkUiModel(
-                                    id = "discord",
-                                    iconResId = R.drawable.alternate_email,
-                                    labelResId = R.string.about_content_desc_discord,
-                                    url = "https://discord.com/users/886971572668219392",
+                                    url = "https://github.com/Shahdullah",
                                 ),
                             ),
                     ),
@@ -555,6 +548,21 @@ class AboutViewModel
                     ),
                 respecters =
                     TeamMemberCollection.of(
+                        TeamMember(
+                            avatarUrl = "https://avatars.githubusercontent.com/u/107134739?v=4",
+                            name = "Rukamori",
+                            positionResId = R.string.about_position_archivetune,
+                            profileUrl = "https://github.com/rukamori/ArchiveTune",
+                            links =
+                                AboutLinkCollection.of(
+                                    AboutLinkUiModel(
+                                        id = "github",
+                                        iconResId = R.drawable.github,
+                                        labelResId = R.string.about_content_desc_github,
+                                        url = "https://github.com/rukamori/ArchiveTune",
+                                    ),
+                                ),
+                        ),
                         TeamMember(
                             avatarUrl = "https://avatars.githubusercontent.com/u/80542861?v=4",
                             name = "MO AGAMY",
