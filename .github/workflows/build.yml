@@ -1,4 +1,4 @@
-name: Build TideFlow APK
+name: Build TideFlow Universal GMS Release APK
 
 on:
   push:
@@ -19,11 +19,11 @@ permissions:
 
 jobs:
   build:
-    name: Build Debug APK
+    name: Build Universal GMS Release APK
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Set up JDK 21
@@ -34,32 +34,80 @@ jobs:
 
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v3
+        with:
+          cache-cleanup: on-success
 
-      - name: Grant execute permission
+      - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
-      - name: Create debug keystore
+      - name: Set up signing keystore
+        shell: bash
+        env:
+          KEYSTORE_B64: ${{ secrets.KEYSTORE }}
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
         run: |
-          mkdir -p ~/.android
-          keytool -genkeypair -v \
-            -keystore ~/.android/debug.keystore \
-            -alias androiddebugkey \
-            -keyalg RSA \
-            -keysize 2048 \
-            -validity 10000 \
-            -storepass android \
-            -keypass android \
-            -dname "CN=Android Debug,O=Android,C=US"
+          mkdir -p /tmp/keystore
+          if [ -n "${KEYSTORE_B64:-}" ]; then
+            echo "$KEYSTORE_B64" | base64 -d > /tmp/keystore/release.jks
+            echo "KEYSTORE_PATH=/tmp/keystore/release.jks" >> "$GITHUB_ENV"
+            echo "KEYSTORE_PASSWORD=$KEYSTORE_PASSWORD" >> "$GITHUB_ENV"
+            echo "KEY_ALIAS=$KEY_ALIAS" >> "$GITHUB_ENV"
+            echo "KEY_PASSWORD=$KEY_PASSWORD" >> "$GITHUB_ENV"
+          else
+            keytool -genkeypair -v \
+              -keystore /tmp/keystore/release.jks -alias tideflow \
+              -keyalg RSA -keysize 2048 -validity 10000 \
+              -dname "CN=TideFlow,O=AARAV SHARMA,C=US" \
+              -storepass tideflow123 -keypass tideflow123
+            echo "KEYSTORE_PATH=/tmp/keystore/release.jks" >> "$GITHUB_ENV"
+            echo "KEYSTORE_PASSWORD=tideflow123" >> "$GITHUB_ENV"
+            echo "KEY_ALIAS=tideflow" >> "$GITHUB_ENV"
+            echo "KEY_PASSWORD=tideflow123" >> "$GITHUB_ENV"
+          fi
 
-      # Build GMS / Mobile / Universal debug APK
-      - name: Generate APK
-        run: ./gradlew assembleGmsMobileUniversalDebug --stacktrace
+      - name: Build Universal GMS Release APK
+        run: ./gradlew assembleGmsMobileUniversalRelease --stacktrace
+        env:
+          LASTFM_API_KEY: ${{ secrets.LASTFM_API_KEY }}
+          LASTFM_SECRET: ${{ secrets.LASTFM_SECRET }}
+          TOGETHER_BEARER_TOKEN: ${{ secrets.TOGETHER_BEARER_TOKEN }}
+          CANVAS_BEARER_TOKEN: ${{ secrets.CANVAS_BEARER_TOKEN }}
 
-      - name: Upload APK
+      - name: Sign APK with apksigner (V2/V3/V4 signatures)
+        shell: bash
+        run: |
+          mkdir -p release-apk
+          RAW_APK=$(find app/build/outputs/apk -type f -name "*.apk" | head -n 1)
+          if [ -z "$RAW_APK" ]; then
+            echo "Error: No APK found in app/build/outputs/apk"
+            find app/build/outputs -type f || true
+            exit 1
+          fi
+          echo "Found built APK: $RAW_APK"
+          
+          BUILD_TOOLS="$(ls "$ANDROID_HOME/build-tools/" | sort -V | tail -n 1)"
+          APKSIGNER="$ANDROID_HOME/build-tools/$BUILD_TOOLS/apksigner"
+          
+          echo "Signing with apksigner ($APKSIGNER)..."
+          "$APKSIGNER" sign \
+            --ks "$KEYSTORE_PATH" \
+            --ks-pass "pass:$KEYSTORE_PASSWORD" \
+            --key-pass "pass:$KEY_PASSWORD" \
+            --ks-key-alias "$KEY_ALIAS" \
+            --out release-apk/TideFlow-universal-gms-release.apk \
+            "$RAW_APK"
+            
+          echo "Verifying signed APK..."
+          "$APKSIGNER" verify --verbose release-apk/TideFlow-universal-gms-release.apk
+          ls -lh release-apk/
+
+      - name: Upload Universal Release APK Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: TideFlow-debug
-          path: app/build/outputs/apk/**/debug/*.apk
+          name: TideFlow-universal-gms-release
+          path: release-apk/TideFlow-universal-gms-release.apk
           if-no-files-found: error
-          retention-days: 14
+          retention-days: 30
 

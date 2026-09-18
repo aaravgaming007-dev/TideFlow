@@ -1,4 +1,4 @@
-﻿import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import java.util.Properties
 
 plugins {
@@ -134,12 +134,19 @@ android {
 
     signingConfigs {
         create("release") {
-            val keystorePath = System.getenv("KEYSTORE_PATH")
+            val keystorePath = providers.environmentVariable("KEYSTORE_PATH").orNull
+                ?: System.getenv("KEYSTORE_PATH")
             if (!keystorePath.isNullOrBlank() && file(keystorePath).exists()) {
                 storeFile = file(keystorePath)
-                storePassword = System.getenv("KEYSTORE_PASSWORD")
-                keyAlias = System.getenv("KEY_ALIAS")
-                keyPassword = System.getenv("KEY_PASSWORD")
+                storePassword = providers.environmentVariable("KEYSTORE_PASSWORD").orNull
+                    ?: System.getenv("KEYSTORE_PASSWORD")
+                    ?: "tideflow123"
+                keyAlias = providers.environmentVariable("KEY_ALIAS").orNull
+                    ?: System.getenv("KEY_ALIAS")
+                    ?: "tideflow"
+                keyPassword = providers.environmentVariable("KEY_PASSWORD").orNull
+                    ?: System.getenv("KEY_PASSWORD")
+                    ?: "tideflow123"
             }
         }
     }
@@ -149,7 +156,8 @@ android {
             isMinifyEnabled = true
             isShrinkResources = true
             // Only attach signing config if keystore is present (avoids breaking unsigned debug builds)
-            val ksPath = System.getenv("KEYSTORE_PATH")
+            val ksPath = providers.environmentVariable("KEYSTORE_PATH").orNull
+                ?: System.getenv("KEYSTORE_PATH")
             if (!ksPath.isNullOrBlank() && file(ksPath).exists()) {
                 signingConfig = signingConfigs.getByName("release")
             }
