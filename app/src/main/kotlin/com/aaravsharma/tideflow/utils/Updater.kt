@@ -60,7 +60,7 @@ object Updater {
     private const val ReleaseCacheCheckIntervalMs: Long = 6 * 60 * 60 * 1000L
     private const val StableDownloadUrl = "https://github.com/aaravgaming007-dev/TideFlow/releases/latest"
     private const val DailyNightlyDownloadUrl =
-        "https://github.com/NomaTuneApp/daily-nightly/releases/latest"
+        "https://github.com/aaravgaming007-dev/TideFlow/releases/latest"
     fun isUpdateAvailable(latestVersion: String, currentVersion: String): Boolean {
         val latestParts = latestVersion.trimStart('v').split(".").mapNotNull { it.toIntOrNull() }
         val currentParts = currentVersion.split("-").firstOrNull()?.split(".")?.mapNotNull { it.toIntOrNull() } ?: emptyList()
@@ -321,7 +321,7 @@ object Updater {
             latest
         }
 
-    suspend fun getCommitHistory(count: Int = 20, branch: String = "dev"): Result<List<GitCommit>> =
+    suspend fun getCommitHistory(count: Int = 20, branch: String = "main"): Result<List<GitCommit>> =
         runCatching {
             if (!isUpdaterDistribution) {
                 return@runCatching emptyList()
@@ -366,7 +366,7 @@ object Updater {
             return ""
         }
 
-        return "https://nightly.link/aaravgaming007-dev/TideFlow/workflows/build/dev/app-$distributionArtifactPrefix${BuildConfig.DEVICE}-${BuildConfig.ARCHITECTURE}-release"
+        return "https://nightly.link/aaravgaming007-dev/TideFlow/workflows/build/main/app-$distributionArtifactPrefix${BuildConfig.DEVICE}-${BuildConfig.ARCHITECTURE}-release"
     }
 
     suspend fun getLatestDailyNightlyVersionName(): Result<String> =
@@ -493,7 +493,7 @@ object Updater {
         cachedEtag: String?,
     ): ReleasesNetworkResult {
         val response: HttpResponse =
-            client.get("https://api.github.com/repos/NomaTuneApp/daily-nightly/releases?per_page=$perPage") {
+            client.get("https://api.github.com/repos/aaravgaming007-dev/TideFlow/releases?per_page=$perPage") {
                 headers {
                     append("Accept", "application/vnd.github+json")
                     append("User-Agent", "TideFlow")
@@ -538,7 +538,7 @@ object Updater {
 
         val tag = latestDailyNightlyReleaseTag
         if (tag != null) {
-            return "https://github.com/NomaTuneApp/daily-nightly/releases/download/$tag/app-$distributionArtifactPrefix${BuildConfig.DEVICE}-${BuildConfig.ARCHITECTURE}-nightly.apk"
+            return "https://github.com/aaravgaming007-dev/TideFlow/releases/download/$tag/app-$distributionArtifactPrefix${BuildConfig.DEVICE}-${BuildConfig.ARCHITECTURE}-release.apk"
         }
         return DailyNightlyDownloadUrl
     }
