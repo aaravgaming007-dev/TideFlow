@@ -1,4 +1,4 @@
-﻿/*
+/*
  * NomaTune (2026)
  * © Shahdullah — github.com/shahdullah
  * GPL-3.0 License | Contributors: see git history
@@ -24,6 +24,7 @@ import com.aaravsharma.tideflow.constants.GitHubReleasesFingerprintKey
 import com.aaravsharma.tideflow.constants.GitHubReleasesJsonKey
 import com.aaravsharma.tideflow.constants.GitHubReleasesLastCheckedAtKey
 import io.ktor.client.HttpClient
+import io.ktor.client.engine.okhttp.OkHttp
 import io.ktor.client.request.get
 import io.ktor.client.request.headers
 import io.ktor.client.statement.HttpResponse
@@ -55,7 +56,7 @@ private data class ReleasesNetworkResult(
 )
 
 object Updater {
-    private val client = HttpClient()
+    private val client = HttpClient(OkHttp)
     private const val ReleaseCacheCheckIntervalMs: Long = 6 * 60 * 60 * 1000L
     private const val StableDownloadUrl = "https://github.com/aaravgaming007-dev/TideFlow/releases/latest"
     private const val DailyNightlyDownloadUrl =

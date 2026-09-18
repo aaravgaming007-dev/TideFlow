@@ -73,6 +73,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import android.widget.Toast
 import androidx.compose.material3.CircularProgressIndicator
 import io.ktor.client.HttpClient
+import io.ktor.client.engine.okhttp.OkHttp
 import io.ktor.client.request.get
 import io.ktor.client.statement.bodyAsText
 import io.ktor.client.statement.HttpResponse
@@ -168,7 +169,7 @@ fun AboutScreen(
 ) {
     val context = LocalContext.current
     val uriHandler = LocalUriHandler.current
-    val httpClient = remember { HttpClient() }
+    val httpClient = remember { HttpClient(OkHttp) }
     DisposableEffect(Unit) {
         onDispose { httpClient.close() }
     }
@@ -232,7 +233,7 @@ fun AboutScreen(
             )
 
             Image(
-                painter = painterResource(R.drawable.about_splash),
+                painter = painterResource(R.drawable.about_splash_img),
                 contentDescription = null,
                 modifier = Modifier
                     .size(160.dp)

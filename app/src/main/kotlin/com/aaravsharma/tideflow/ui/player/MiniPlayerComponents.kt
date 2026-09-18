@@ -1,4 +1,4 @@
-﻿/*
+/*
  * NomaTune (2026)
  * © Shahdullah — github.com/shahdullah
  * GPL-3.0 License | Contributors: see git history
@@ -344,7 +344,7 @@ private fun MiniPlayerArtwork(
                 )
             } else {
                 Image(
-                    painter = painterResource(R.drawable.about_splash),
+                    painter = painterResource(R.drawable.about_splash_img),
                     contentDescription = null,
                     modifier = Modifier.size(22.dp)
                 )
