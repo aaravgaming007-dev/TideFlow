@@ -1,8 +1,8 @@
-<div align="center">
+﻿<div align="center">
 
-  <img src="assets/ic_launcher-playstore.png" width="120" alt="NomaTune Logo"/>
+  <img src="assets/ic_launcher-playstore.png" width="120" alt="TideFlow Logo"/>
 
-  # NomaTune
+  # TideFlow
 
   ### The Material 3 Expressive Music Player
 
@@ -12,10 +12,10 @@
 
   [![License: GPL v3](https://img.shields.io/badge/License-GPL_v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
   [![Platform](https://img.shields.io/badge/platform-Android-green.svg)](https://www.android.com)
-  [![GitHub release](https://img.shields.io/github/v/release/Shahdullah/NomaTune?color=orange)](https://github.com/Shahdullah/NomaTune/releases)
-  [![GitHub stars](https://img.shields.io/github/stars/Shahdullah/NomaTune?style=social)](https://github.com/Shahdullah/NomaTune/stargazers)
+  [![GitHub release](https://img.shields.io/github/v/release/AARAV SHARMA/TideFlow?color=orange)](https://github.com/AARAV SHARMA/TideFlow/releases)
+  [![GitHub stars](https://img.shields.io/github/stars/AARAV SHARMA/TideFlow?style=social)](https://github.com/AARAV SHARMA/TideFlow/stargazers)
 
-  [**📥 Download**](https://github.com/Shahdullah/NomaTune/releases/latest) • [**🌐 Website**](https://nomatune.vercel.app) • [**🐛 Report Bug**](https://github.com/Shahdullah/NomaTune/issues)
+  [**📥 Download**](https://github.com/AARAV SHARMA/TideFlow/releases/latest) • [**🌐 Website**](https://tideflow.vercel.app) • [**🐛 Report Bug**](https://github.com/AARAV SHARMA/TideFlow/issues)
 
   </div>
 
@@ -80,7 +80,7 @@
   ## 📥 Installation
 
   ### 🔽 Direct APK
-  1. Go to [Releases](https://github.com/Shahdullah/NomaTune/releases/latest)
+  1. Go to [Releases](https://github.com/AARAV SHARMA/TideFlow/releases/latest)
   2. Download the APK for your device (arm64 recommended for most phones)
   3. Install on your Android device (enable "Install from unknown sources")
 
@@ -100,8 +100,8 @@
 
   ### Steps
   ```bash
-  git clone https://github.com/Shahdullah/NomaTune.git
-  cd NomaTune
+  git clone https://github.com/AARAV SHARMA/TideFlow.git
+  cd TideFlow
   ./gradlew assembleGmsMobileUniversalRelease
   ```
 
@@ -126,6 +126,6 @@
 
   
 
-  © 2026 Shahdullah — [github.com/shahdullah](https://github.com/shahdullah)
+  © 2026 AARAV SHARMA — [github.com/shahdullah](https://github.com/shahdullah)
 
   </div>

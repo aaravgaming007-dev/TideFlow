@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="home">Inicio</string>
     <string name="songs">Canciones</string>
@@ -333,8 +333,8 @@
     <string name="custom_value">Valor personalizado</string>
     <string name="new_library_design">Nuevo diseño de biblioteca</string>
     <string name="new_library_design_description">Habilita el nuevo diseño de la biblioteca (puede ser inestable)</string>
-    <string name="nomatune_canvas">NomaTune Canvas</string>
-    <string name="nomatune_canvas_desc">Animar la portada del álbum mientras se reproduce (Impulsado por BetterLyrics)</string>
+    <string name="tideflow_canvas">TideFlow Canvas</string>
+    <string name="tideflow_canvas_desc">Animar la portada del álbum mientras se reproduce (Impulsado por BetterLyrics)</string>
     <string name="show_button1_description">Alternar la visibilidad del botón 1 en Discord Rich Presence</string>
     <string name="show_button2_description">Alternar la visibilidad del botón 2 en Discord Rich Presence</string>
     <string name="discord_activity_type">Tipo de actividad</string>
@@ -516,7 +516,7 @@
     <string name="select_language">Selecciona el idioma</string>
     <string name="close_dialog">Cerrar</string>
     <string name="select_dialog">Seleccionar</string>
-    <string name="support_github">Inicia NomaTune!</string>
+    <string name="support_github">Inicia TideFlow!</string>
     <string name="new_update_available">Nueva actualización disponible</string>
     <string name="release_notes_unavailable">Las notas de la versión no están disponibles</string>
     <string name="update_text">Actualizar</string>
@@ -616,9 +616,9 @@
     <string name="update_notification_channel_name">Actualizaciones de la aplicación</string>
     <string name="update_notification_channel_desc">Notificaciones para nuevas actualizaciones de la aplicación</string>
     <string name="update_notification_title">Actualización Disponible</string>
-    <string name="update_notification_text">NomaTune %s esta ahora disponible</string>
+    <string name="update_notification_text">TideFlow %s esta ahora disponible</string>
     <string name="download">Descargar</string>
-    <string name="permissions_title">Permite a NomaTune a trabajar mejor</string>
+    <string name="permissions_title">Permite a TideFlow a trabajar mejor</string>
     <string name="permissions_subtitle">Utilizamos un par de permisos para reproducir y administrar tu música de forma fiable. Puedes cambiar esto en los ajustes del sistema cuando quieras.</string>
     <string name="permission_storage_title">Acceso al almacenamiento</string>
     <string name="permission_storage_desc">Requerido para leer tus descargas y para reproducir tus audios locales.</string>
@@ -632,7 +632,7 @@
     <string name="allow">Permitir</string>
     <string name="you_might_like">Tal vez te guste</string>
     <string name="refresh_suggestions">Actualizar sugerencias</string>
-    <string name="music_together">Juntos con NomaTune Music</string>
+    <string name="music_together">Juntos con TideFlow Music</string>
     <string name="together_display_name">Mostrar nombre</string>
     <string name="together_display_name_placeholder">Tú nombre</string>
     <string name="together_port">Puerto de sesión</string>
@@ -688,10 +688,10 @@
     <string name="together_error_state">Error</string>
     <string name="got_it">Entendido</string>
     <string name="together_dont_show_again">No mostrar esto nuevamente</string>
-    <string name="together_welcome_title">Bienvenido a NomaTune Music Together</string>
+    <string name="together_welcome_title">Bienvenido a TideFlow Music Together</string>
     <string name="together_welcome_body">Music Together permite que múltiples dispositivos compartan una sesión en vivo con una cola y reproducción sincronizadas.</string>
     <string name="together_welcome_host_title">Organizar una sesión</string>
-    <string name="together_welcome_host_body">Pulsa \"comenzar sesión\", después comparte el enlace de sesión. Mantén NomaTune abierto en segundo plano mientras alojas.</string>
+    <string name="together_welcome_host_body">Pulsa \"comenzar sesión\", después comparte el enlace de sesión. Mantén TideFlow abierto en segundo plano mientras alojas.</string>
     <string name="stream_bypass_proxy">Proxy de derivación para transmisiones</string>
     <string name="stream_bypass_proxy_desc">Utiliza tu dirección IP directa para la reproducción de transmisiones y evita las incompatibilidades de IP</string>
     <string name="speed_dial">Marcación rápida</string>
@@ -705,7 +705,7 @@
     <string name="remove_from_speed_dial">Eliminar de los contactos de marcación rápida</string>
     <string name="sort_by_most_played">Los más escuchados</string>
     <string name="no_matching_playlists">No hay listas de reproducción que coincidan</string>
-    <string name="nomatune_canvas_v7_desc">No disponible con el estilo de reproductor «Inmersivo»</string>
+    <string name="tideflow_canvas_v7_desc">No disponible con el estilo de reproductor «Inmersivo»</string>
     <string name="blur_intensity">Intensidad del desenfoque</string>
     <string name="blur_intensity_value">%1$d dp</string>
     <string name="slider_style_standard">Estandar</string>
@@ -714,9 +714,9 @@
     <string name="slider_style_circular">Circular</string>
     <string name="slider_style_simple">Sencillo</string>
     <string name="playback_confirmation_required">Se requiere confirmación de reproducción</string>
-    <string name="playback_requires_youtube_music_confirmation">Confirma la reproducción en YouTube Music y, a continuación, vuelve a NomaTune.</string>
+    <string name="playback_requires_youtube_music_confirmation">Confirma la reproducción en YouTube Music y, a continuación, vuelve a TideFlow.</string>
     <string name="playback_login_refresh_required">Actualizar el inicio de sesión en YouTube Music</string>
-    <string name="playback_requires_youtube_music_login_refresh">Actualiza tu sesión de YouTube Music y, a continuación, vuelve a NomaTune.</string>
+    <string name="playback_requires_youtube_music_login_refresh">Actualiza tu sesión de YouTube Music y, a continuación, vuelve a TideFlow.</string>
     <string name="pause_on_device_mute">Pausar cuando el dispositivo este en silencio</string>
     <string name="pause_on_device_mute_desc">Pausar automáticamente la música cuando se pone en silenco y reanudarla cuando se activa el sonido</string>
     <string name="wakelock">Mantener la cpu activa durante la reproducción</string>
@@ -759,7 +759,7 @@
     <string name="no_visitor_data">No hay datos de visitantes disponibles. No se pueden generar tokens.</string>
     <string name="extracting_from_url">Extrayendo tokens de la URL…</string>
     <string name="po_token_account_notice_title">Utiliza la misma cuenta</string>
-    <string name="po_token_account_notice_body">Inicia sesión aquí con la misma cuenta de Google que ya utilizas para YouTube Music dentro de NomaTune antes de generar un token PO.</string>
+    <string name="po_token_account_notice_body">Inicia sesión aquí con la misma cuenta de Google que ya utilizas para YouTube Music dentro de TideFlow antes de generar un token PO.</string>
     <string name="po_token_account_notice_same_account">Si esta WebView utiliza una cuenta diferente, el token generado no funcionará correctamente.</string>
     <string name="po_token_account_notice_mismatch">Utiliza la cuenta correspondiente, completa el proceso de inicio de sesión y, a continuación, abre youtube.com/account y genera el token desde esa página.</string>
     <string name="mood_and_genres_supporting">Reproduce por sensación, época o género</string>
@@ -824,7 +824,7 @@
     <string name="aod_mode_exit">Desactivar pantalla siempre encendida</string>
     <string name="error_malformed_stream">Error en la fuente</string>
     <string name="support_development_title">Apoyar el desarrollo</string>
-    <string name="support_development_message">¡Hola! Soy Shahdullah, el desarrollador de NomaTune. Si NomaTune se ha ganado un hueco en tu rutina diaria de música, puedes ayudar a que siga adelante haciendo una donación o marcando el proyecto como favorito en GitHub. Gracias por apoyar el trabajo que hay detrás de la aplicación.</string>
+    <string name="support_development_message">¡Hola! Soy AARAV SHARMA, el desarrollador de TideFlow. Si TideFlow se ha ganado un hueco en tu rutina diaria de música, puedes ayudar a que siga adelante haciendo una donación o marcando el proyecto como favorito en GitHub. Gracias por apoyar el trabajo que hay detrás de la aplicación.</string>
     <string name="support_development_donate">Haz una donación para apoyar el desarrollo</string>
     <string name="support_development_star">Marcar como favorito en GitHub</string>
     <string name="later">Más tarde</string>
@@ -844,7 +844,7 @@
     <string name="build_your_mix_failed">No se pudo crear la mezcla</string>
     <string name="widget_pause">Pausar</string>
     <string name="widget_previous">Anterior</string>
-    <string name="widget_tap_to_open">Toca para abrir NomaTune</string>
+    <string name="widget_tap_to_open">Toca para abrir TideFlow</string>
     <string name="album_backdrop">Desenfoque de fondo</string>
     <string name="album_backdrop_desc">Mostrar la obra de arte como fondo borroso en el reproductor</string>
     <string name="backdrop_blur_amount">Cantidad de desenfoque de fondo</string>

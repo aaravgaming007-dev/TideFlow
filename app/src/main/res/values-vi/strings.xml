@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Upstream InnerTune strings --><!-- Do not add new features here --><!-- Try to re-use strings here, but be careful on its usage e.g. verb vs noun --><!-- "InnerTune" is replaced with "NomaTune" --><!-- Translators: Do not modify this file for translations, use InnerTune's Weblate instead. --><resources>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Upstream InnerTune strings --><!-- Do not add new features here --><!-- Try to re-use strings here, but be careful on its usage e.g. verb vs noun --><!-- "InnerTune" is replaced with "TideFlow" --><!-- Translators: Do not modify this file for translations, use InnerTune's Weblate instead. --><resources>
     <!-- Bottom navigation -->
     <string name="home">Trang chủ</string>
     <string name="songs">Bài hát</string>
@@ -428,8 +428,8 @@
     <string name="discord_activity_type">Loại hoạt động</string>
     <string name="dark_theme_follow_system">Theo hệ thống</string>
     <string name="pure_black">Đen thuần</string>
-    <string name="nomatune_canvas">NomaTune Canvas</string>
-    <string name="nomatune_canvas_desc">Tạo hiệu ứng động cho artwork album khi phát (Được hỗ trợ bởi BetterLyrics)</string>
+    <string name="tideflow_canvas">TideFlow Canvas</string>
+    <string name="tideflow_canvas_desc">Tạo hiệu ứng động cho artwork album khi phát (Được hỗ trợ bởi BetterLyrics)</string>
     <string name="disable_blur">Tắt hiệu ứng làm mờ</string>
     <string name="disable_blur_desc">Tắt hiệu ứng làm mờ trong toàn bộ ứng dụng</string>
     <string name="customize_navigation_tabs">Tùy chỉnh tab điều hướng</string>
@@ -634,7 +634,7 @@
     <string name="select_language">Chọn ngôn ngữ</string>
     <string name="close_dialog">Đóng</string>
     <string name="select_dialog">Chọn</string>
-    <string name="support_github">Star NomaTune!</string>
+    <string name="support_github">Star TideFlow!</string>
     <!-- Update dialog -->
     <string name="new_update_available">Cập nhật mới có sẵn</string>
     <string name="release_notes_unavailable">Ghi chú phát hành không khả dụng</string>
@@ -717,9 +717,9 @@
     <string name="update_notification_channel_name">Cập nhật Ứng dụng</string>
     <string name="update_notification_channel_desc">Thông báo cho các cập nhật ứng dụng mới</string>
     <string name="update_notification_title">Cập nhật Có sẵn</string>
-    <string name="update_notification_text">NomaTune %s hiện đã có sẵn</string>
+    <string name="update_notification_text">TideFlow %s hiện đã có sẵn</string>
     <string name="download">Tải xuống</string>
-    <string name="permissions_title">Cho phép NomaTune hoạt động tốt nhất</string>
+    <string name="permissions_title">Cho phép TideFlow hoạt động tốt nhất</string>
     <string name="permissions_subtitle">Chúng tôi sử dụng một số quyền để phát và quản lý nhạc của bạn một cách đáng tin cậy. Bạn có thể thay đổi những quyền này bất cứ lúc nào trong cài đặt hệ thống.</string>
     <string name="permission_storage_title">Truy cập lưu trữ</string>
     <string name="permission_storage_desc">Cần thiết để đọc các file âm thanh đã tải xuống và cục bộ của bạn để phát nhạc.</string>
@@ -764,7 +764,7 @@
     <!-- Playlist Suggestions -->
     <string name="you_might_like">Có thể bạn sẽ thích</string>
     <string name="refresh_suggestions">Làm mới gợi ý</string>
-    <string name="music_together">NomaTune Music Together</string>
+    <string name="music_together">TideFlow Music Together</string>
     <string name="together_display_name">Tên hiển thị</string>
     <string name="together_display_name_placeholder">Tên của bạn</string>
     <string name="together_port">Cổng phiên</string>
@@ -818,10 +818,10 @@
     <string name="together_error_state">Lỗi</string>
     <string name="got_it">Hiểu rồi</string>
     <string name="together_dont_show_again">Không hiển thị lại nữa</string>
-    <string name="together_welcome_title">Chào mừng đến với NomaTune Music Together</string>
+    <string name="together_welcome_title">Chào mừng đến với TideFlow Music Together</string>
     <string name="together_welcome_body">Music Together cho phép nhiều thiết bị chia sẻ một phiên trực tiếp với Queue đồng bộ và phát nhạc.</string>
     <string name="together_welcome_host_title">Tổ chức một phiên</string>
-    <string name="together_welcome_host_body">Nhấn Bắt đầu phiên, sau đó chia sẻ liên kết phiên. Giữ NomaTune mở trong nền trong khi tổ chức.</string>
+    <string name="together_welcome_host_body">Nhấn Bắt đầu phiên, sau đó chia sẻ liên kết phiên. Giữ TideFlow mở trong nền trong khi tổ chức.</string>
     <string name="together_welcome_join_title">Tham gia từ thiết bị khác</string>
     <string name="together_welcome_join_body">Mở liên kết được chia sẻ, hoặc nhập mã và nhấn Tham gia. Hàng đợi và phát nhạc của bạn sẽ theo người tổ chức.</string>
     <string name="together_welcome_permissions_title">Quyền và an toàn</string>
@@ -842,7 +842,7 @@
     <string name="remove_from_speed_dial">Xóa khỏi Speed Dial</string>
     <string name="sort_by_most_played">Phát nhiều nhất</string>
     <string name="no_matching_playlists">Không tìm thấy danh sách phát phù hợp</string>
-    <string name="nomatune_canvas_v7_desc">Không khả dụng với phong cách Immersive</string>
+    <string name="tideflow_canvas_v7_desc">Không khả dụng với phong cách Immersive</string>
     <string name="blur_intensity">Cường độ mờ</string>
     <string name="blur_intensity_value">%1$d dp</string>
     <string name="slider_style_standard">Tiêu chuẩn</string>
@@ -851,9 +851,9 @@
     <string name="slider_style_circular">Circular</string>
     <string name="slider_style_simple">Đơn giản</string>
     <string name="playback_confirmation_required">Cần xác nhận phát lại</string>
-    <string name="playback_requires_youtube_music_confirmation">Xác nhận phát lại trong YouTube Music, sau đó quay lại NomaTune.</string>
+    <string name="playback_requires_youtube_music_confirmation">Xác nhận phát lại trong YouTube Music, sau đó quay lại TideFlow.</string>
     <string name="playback_login_refresh_required">Làm mới đăng nhập YouTube Music</string>
-    <string name="playback_requires_youtube_music_login_refresh">Làm mới trang đăng nhập YouTube Music của bạn, sau đó quay lại NomaTune.</string>
+    <string name="playback_requires_youtube_music_login_refresh">Làm mới trang đăng nhập YouTube Music của bạn, sau đó quay lại TideFlow.</string>
     <string name="pause_on_device_mute">Tạm dừng khi âm lượng thiết bị bằng 0</string>
     <string name="pause_on_device_mute_desc">Tự động tạm dừng nhạc khi tắt tiếng và tiếp tục phát khi bật tiếng trở lại</string>
     <string name="wakelock">Giữ cho CPU luôn hoạt động trong suốt quá trình phát lại</string>
@@ -894,7 +894,7 @@
     <string name="no_visitor_data">Không có dữ liệu khách truy cập. Không thể tạo token.</string>
     <string name="extracting_from_url">Trích xuất token từ URL…</string>
     <string name="po_token_account_notice_title">Sử dụng cùng tài khoản</string>
-    <string name="po_token_account_notice_body">Đăng nhập vào đây bằng chính tài khoản Google mà bạn đã sử dụng cho YouTube Music trong NomaTune trước khi tạo mã thông báo PO.</string>
+    <string name="po_token_account_notice_body">Đăng nhập vào đây bằng chính tài khoản Google mà bạn đã sử dụng cho YouTube Music trong TideFlow trước khi tạo mã thông báo PO.</string>
     <string name="po_token_account_notice_same_account">Nếu WebView này sử dụng một tài khoản khác, mã thông báo được tạo sẽ không hoạt động chính xác.</string>
     <string name="po_token_account_notice_mismatch">Sử dụng tài khoản phù hợp, hoàn tất quy trình đăng nhập, sau đó mở youtube.com/account và tạo mã thông báo từ trang đó.</string>
     <string name="mood_and_genres_supporting">Phát bằng cảm giác, thời đại hoặc năng lượng</string>
@@ -932,7 +932,7 @@
     <string name="aod_mode_exit">Thoát AOD</string>
     <string name="error_malformed_stream">Lỗi nguồn</string>
     <string name="support_development_title">Hỗ trợ phát triển</string>
-    <string name="support_development_message">Chào mọi người! Tôi là Shahdullah, nhà phát triển của NomaTune. Nếu NomaTune đã trở thành một phần trong danh sách nghe nhạc hàng ngày của bạn, bạn có thể giúp dự án tiếp tục phát triển bằng cách quyên góp hoặc đánh dấu sao trên GitHub. Cảm ơn vì đã ủng hộ công sức của chúng tôi trong việc phát triển ứng dụng.</string>
+    <string name="support_development_message">Chào mọi người! Tôi là AARAV SHARMA, nhà phát triển của TideFlow. Nếu TideFlow đã trở thành một phần trong danh sách nghe nhạc hàng ngày của bạn, bạn có thể giúp dự án tiếp tục phát triển bằng cách quyên góp hoặc đánh dấu sao trên GitHub. Cảm ơn vì đã ủng hộ công sức của chúng tôi trong việc phát triển ứng dụng.</string>
     <string name="support_development_donate">Quyên góp để hỗ trợ phát triển</string>
     <string name="support_development_star">Sao trên GitHub</string>
     <string name="later">Để sau</string>
@@ -953,7 +953,7 @@
     <string name="build_your_mix_song_count">Bạn muốn lấy tổng cộng bao nhiêu bài hát?</string>
     <string name="build_your_mix_title">Xây dựng Mix của bạn</string>
     <string name="could_not_open_youtube_music">Không thể mở YouTube Music</string>
-    <string name="discord_account_ready">NomaTune đã sẵn sàng để xuất bản Rich Presence cho phiên nghe nhạc của bạn.</string>
+    <string name="discord_account_ready">TideFlow đã sẵn sàng để xuất bản Rich Presence cho phiên nghe nhạc của bạn.</string>
     <string name="discord_activity_content">Nội dung Hoạt động</string>
     <string name="discord_activity_type_competing_label">Đang cạnh tranh</string>
     <string name="discord_activity_type_listening_label">Đang nghe</string>
@@ -970,7 +970,7 @@
     <string name="discord_interval_unit_hours">Giờ</string>
     <string name="discord_interval_unit_minutes">Phút</string>
     <string name="discord_interval_unit_seconds">Giây</string>
-    <string name="discord_login_description">Kết nối tài khoản Discord của bạn với OAuth để NomaTune có thể xuất bản Rich Presence thông qua Social SDK chính thức của Discord.</string>
+    <string name="discord_login_description">Kết nối tài khoản Discord của bạn với OAuth để TideFlow có thể xuất bản Rich Presence thông qua Social SDK chính thức của Discord.</string>
     <string name="discord_open_authorization">Mở ủy quyền Discord</string>
     <string name="discord_platform_android">Android</string>
     <string name="discord_platform_desktop">Desktop</string>
@@ -1022,7 +1022,7 @@
     <string name="visit_website">Truy cập trang web</string>
     <string name="widget_pause">Tạm dừng</string>
     <string name="widget_previous">Bài trước</string>
-    <string name="widget_tap_to_open">Nhấn để mở NomaTune</string>
+    <string name="widget_tap_to_open">Nhấn để mở TideFlow</string>
     <string name="album_backdrop">Mờ nền</string>
     <string name="album_backdrop_desc">Hiển thị ảnh nghệ thuật dưới dạng nền mờ trên trình phát</string>
     <string name="backdrop_blur_amount">Mức độ mờ nền</string>

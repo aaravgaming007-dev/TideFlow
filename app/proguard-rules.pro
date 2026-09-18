@@ -1,4 +1,4 @@
-# Add project specific ProGuard rules here.
+﻿# Add project specific ProGuard rules here.
 # You can control the set of applied configuration files using the
 # proguardFiles setting in build.gradle.kts.
 #
@@ -100,11 +100,11 @@
 
 ## Queue Persistence Rules
 # Keep queue-related classes to prevent serialization issues in release builds
--keep class com.shahdullah.nomatune.models.PersistQueue { *; }
--keep class com.shahdullah.nomatune.models.PersistPlayerState { *; }
--keep class com.shahdullah.nomatune.models.QueueData { *; }
--keep class com.shahdullah.nomatune.models.QueueType { *; }
--keep class com.shahdullah.nomatune.playback.queues.** { *; }
+-keep class com.aaravsharma.tideflow.models.PersistQueue { *; }
+-keep class com.aaravsharma.tideflow.models.PersistPlayerState { *; }
+-keep class com.aaravsharma.tideflow.models.QueueData { *; }
+-keep class com.aaravsharma.tideflow.models.QueueType { *; }
+-keep class com.aaravsharma.tideflow.playback.queues.** { *; }
 
 # Keep serialization methods for queue persistence
 -keepclassmembers class * implements java.io.Serializable {

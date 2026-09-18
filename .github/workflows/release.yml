@@ -1,4 +1,4 @@
-name: Release NomaTune
+name: Release TideFlow
 
 on:
   push:
@@ -74,14 +74,14 @@ jobs:
             echo "KEY_PASSWORD=$KEY_PASSWORD"            >> "$GITHUB_ENV"
           else
             keytool -genkeypair -v \
-              -keystore /tmp/release.jks -alias nomatune \
+              -keystore /tmp/release.jks -alias tideflow \
               -keyalg RSA -keysize 2048 -validity 10000 \
-              -dname "CN=NomaTune,O=Shahdullah,C=US" \
-              -storepass nomatune123 -keypass nomatune123 2>/dev/null
+              -dname "CN=TideFlow,O=AARAV SHARMA,C=US" \
+              -storepass tideflow123 -keypass tideflow123 2>/dev/null
             echo "KEYSTORE_PATH=/tmp/release.jks" >> "$GITHUB_ENV"
-            echo "KEYSTORE_PASSWORD=nomatune123"  >> "$GITHUB_ENV"
-            echo "KEY_ALIAS=nomatune"             >> "$GITHUB_ENV"
-            echo "KEY_PASSWORD=nomatune123"       >> "$GITHUB_ENV"
+            echo "KEYSTORE_PASSWORD=tideflow123"  >> "$GITHUB_ENV"
+            echo "KEY_ALIAS=tideflow"             >> "$GITHUB_ENV"
+            echo "KEY_PASSWORD=tideflow123"       >> "$GITHUB_ENV"
             echo "::warning::No KEYSTORE secret set — APK signed with a temporary key."
           fi
 
@@ -200,7 +200,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: v${{ steps.ver.outputs.version }}
-          name: NomaTune v${{ steps.ver.outputs.version }}
+          name: TideFlow v${{ steps.ver.outputs.version }}
           draft: false
           prerelease: false
           generate_release_notes: false

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="home">Головна</string>
     <string name="songs">Пісні</string>
@@ -178,8 +178,8 @@
     <string name="playlist_imported">Плейліст імпортовано</string>
     <string name="removed_song_from_playlist">Видалено \"%s\" з плейліста</string>
     <string name="playlist_synced">Плейліст синхронізовано</string>
-    <string name="nomatune_canvas">NomaTune Canvas</string>
-    <string name="nomatune_canvas_desc">Анімувати обкладинку альбому під час відтворення (за технологією BetterLyrics)</string>
+    <string name="tideflow_canvas">TideFlow Canvas</string>
+    <string name="tideflow_canvas_desc">Анімувати обкладинку альбому під час відтворення (за технологією BetterLyrics)</string>
     <string name="action_sync">Синхронізувати</string>
     <string name="advanced">Розширені налаштування</string>
     <string name="tempo_and_pitch">Темп і висота звуку</string>
@@ -356,7 +356,7 @@
     <string name="custom_value">Власне значення</string>
     <string name="new_library_design">Новий дизайн бібліотеки</string>
     <string name="new_library_design_description">Увімкнути новий дизайн бібліотеки (може працювати нестабільно)</string>
-    <string name="nomatune_canvas_v7_desc">Недоступно для стилю відтворення «Занурення»</string>
+    <string name="tideflow_canvas_v7_desc">Недоступно для стилю відтворення «Занурення»</string>
     <string name="show_button1_description">Увімкнути/вимкнути відображення кнопки 1 у функції «Rich Presence» Discord</string>
     <string name="show_button2_description">Увімкнути/вимкнути відображення кнопки 2 у функції «Rich Presence» Discord</string>
     <string name="discord_activity_type">Тип активності</string>
@@ -401,9 +401,9 @@
     <string name="not_logged_in">Ви не увійшли в систему</string>
     <string name="login_failed">Не вдалося увійти</string>
     <string name="playback_confirmation_required">Потрібне підтвердження відтворення</string>
-    <string name="playback_requires_youtube_music_confirmation">Підтвердьте відтворення в YouTube Music, а потім поверніться до NomaTune.</string>
+    <string name="playback_requires_youtube_music_confirmation">Підтвердьте відтворення в YouTube Music, а потім поверніться до TideFlow.</string>
     <string name="playback_login_refresh_required">Оновлення входу в YouTube Music</string>
-    <string name="playback_requires_youtube_music_login_refresh">Оновіть дані для входу в YouTube Music, а потім поверніться до NomaTune.</string>
+    <string name="playback_requires_youtube_music_login_refresh">Оновіть дані для входу в YouTube Music, а потім поверніться до TideFlow.</string>
     <string name="content_language">Стандартна мова контенту</string>
     <string name="content_country">Стандартна країна походження контенту</string>
     <string name="system_default">Налаштування системи</string>
@@ -561,7 +561,7 @@
     <string name="select_language">Вибрати мову</string>
     <string name="close_dialog">Закрити</string>
     <string name="select_dialog">Вибрати</string>
-    <string name="support_github">Star NomaTune!</string>
+    <string name="support_github">Star TideFlow!</string>
     <string name="new_update_available">Доступне нове оновлення</string>
     <string name="release_notes_unavailable">Інформація про оновлення недоступна</string>
     <string name="update_text">Оновити</string>
@@ -664,9 +664,9 @@
     <string name="update_notification_channel_name">Оновлення додатку</string>
     <string name="update_notification_channel_desc">Сповіщення про нові оновлення додатку</string>
     <string name="update_notification_title">Доступно нове оновлення</string>
-    <string name="update_notification_text">NomaTune %s тепер доступно</string>
+    <string name="update_notification_text">TideFlow %s тепер доступно</string>
     <string name="download">Завантажити</string>
-    <string name="permissions_title">Дозволити NomaTune працювати на повну</string>
+    <string name="permissions_title">Дозволити TideFlow працювати на повну</string>
     <string name="permissions_subtitle">Для безперебійного відтворення та управління вашою музикою нам потрібні деякі дозволи. Ви можете змінити їх у будь-який час у налаштуваннях системи.</string>
     <string name="permission_storage_title">Доступ до сховища</string>
     <string name="permission_storage_desc">Необхідно для зчитування завантажених та локальних аудіофайлів з метою їх відтворення.</string>
@@ -680,7 +680,7 @@
     <string name="allow">Дозволити</string>
     <string name="you_might_like">Вам може сподобатися</string>
     <string name="refresh_suggestions">Оновити пропозиції</string>
-    <string name="music_together">NomaTune Музика разом</string>
+    <string name="music_together">TideFlow Музика разом</string>
     <string name="together_display_name">Ім\'я для відображення</string>
     <string name="together_display_name_placeholder">Ваше ім\'я</string>
     <string name="together_port">Порт сесії</string>
@@ -736,10 +736,10 @@
     <string name="together_error_state">Помилка</string>
     <string name="got_it">Got it</string>
     <string name="together_dont_show_again">Більше не показувати</string>
-    <string name="together_welcome_title">Ласкаво просимо до NomaTune Музика разом</string>
+    <string name="together_welcome_title">Ласкаво просимо до TideFlow Музика разом</string>
     <string name="together_welcome_body">Музика разом дозволяє кільком пристроям одночасно брати участь у сеансі в режимі реального часу завдяки синхронізованому списку відтворення та відтворенню.</string>
     <string name="together_welcome_host_title">Провести сесію</string>
-    <string name="together_welcome_host_body">Натисніть «Почати сеанс», а потім поділіться посиланням на сеанс. Під час проведення сеансу залиште NomaTune відкритим у фоновому режимі.</string>
+    <string name="together_welcome_host_body">Натисніть «Почати сеанс», а потім поділіться посиланням на сеанс. Під час проведення сеансу залиште TideFlow відкритим у фоновому режимі.</string>
     <string name="together_welcome_join_title">Доєднатися з іншого пристрою</string>
     <string name="together_welcome_join_body">Відкрийте спільне посилання або введіть код і натисніть «Приєднатися». Ваша черга та відтворення будуть синхронізовані з організатором.</string>
     <string name="together_welcome_permissions_title">Дозволи та безпека</string>
@@ -768,7 +768,7 @@
     <string name="no_visitor_data">Дані про відвідувачів відсутні. Неможливо створити токени.</string>
     <string name="extracting_from_url">Витягування токенів з URL-адреси…</string>
     <string name="po_token_account_notice_title">Використовуйте той самий обліковий запис</string>
-    <string name="po_token_account_notice_body">Перш ніж створити токен PO, увійдіть сюди за допомогою того самого облікового запису Google, який ви вже використовуєте для YouTube Music у програмі NomaTune.</string>
+    <string name="po_token_account_notice_body">Перш ніж створити токен PO, увійдіть сюди за допомогою того самого облікового запису Google, який ви вже використовуєте для YouTube Music у програмі TideFlow.</string>
     <string name="po_token_account_notice_same_account">Якщо цей WebView використовує інший обліковий запис, згенерований токен не працюватиме належним чином.</string>
     <string name="po_token_account_notice_mismatch">Використовуйте відповідний обліковий запис, завершіть процедуру входу, а потім відкрийте сторінку youtube.com/account і створіть токен на цій сторінці.</string>
     <string name="mood_and_genres_supporting">Слухайте на основі почуттів, ери або енергії</string>

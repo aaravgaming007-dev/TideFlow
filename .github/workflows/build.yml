@@ -1,4 +1,4 @@
-name: Build NomaTune APK
+name: Build TideFlow APK
 
 on:
   push:
@@ -38,14 +38,28 @@ jobs:
       - name: Grant execute permission
         run: chmod +x gradlew
 
-      # Build GMS / Mobile / Universal debug APK for CI verification
-      - name: Build debug APK
+      - name: Create debug keystore
+        run: |
+          mkdir -p ~/.android
+          keytool -genkeypair -v \
+            -keystore ~/.android/debug.keystore \
+            -alias androiddebugkey \
+            -keyalg RSA \
+            -keysize 2048 \
+            -validity 10000 \
+            -storepass android \
+            -keypass android \
+            -dname "CN=Android Debug,O=Android,C=US"
+
+      # Build GMS / Mobile / Universal debug APK
+      - name: Generate APK
         run: ./gradlew assembleGmsMobileUniversalDebug --stacktrace
 
-      - name: Upload debug APK
+      - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: NomaTune-debug
-          path: app/build/outputs/apk/gmsMobileUniversal/debug/*.apk
+          name: TideFlow-debug
+          path: app/build/outputs/apk/**/debug/*.apk
           if-no-files-found: error
           retention-days: 14
+

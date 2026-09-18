@@ -1,12 +1,12 @@
-# Contributing to NomaTune
+﻿# Contributing to TideFlow
 
 Thanks for your interest in contributing! 🎵
 
 ## 🐛 Reporting Bugs
 
-Please open an [issue](https://github.com/Shahdullah/NomaTune/issues) with:
+Please open an [issue](https://github.com/AARAV SHARMA/TideFlow/issues) with:
 - Your device & Android version
-- NomaTune version
+- TideFlow version
 - Steps to reproduce
 - Expected vs actual behavior
 - Logs / screenshots if possible
@@ -41,4 +41,4 @@ By contributing, you agree your contributions are licensed under GPL-3.0.
 
 ---
 
-Thanks for helping make NomaTune better! 🙌
+Thanks for helping make TideFlow better! 🙌

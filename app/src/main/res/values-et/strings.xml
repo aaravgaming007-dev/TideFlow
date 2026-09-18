@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="home">Avaleht</string>
     <string name="songs">Lood</string>
@@ -293,7 +293,7 @@
     <string name="dismiss">Loobu</string>
     <string name="options">Valikud</string>
     <string name="preview">Eelvaade</string>
-    <string name="enable_discord_rpc">Näita oma tegevust NomaTune\'i rakenduses Discordi olekuteatena</string>
+    <string name="enable_discord_rpc">Näita oma tegevust TideFlow\'i rakenduses Discordi olekuteatena</string>
     <string name="scrobbling">Kraasimine</string>
     <string name="lastfm_integration">Last.fm-i lõiming</string>
     <string name="enable_scrobbling">Lülita kraasimine sisse</string>

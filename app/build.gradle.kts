@@ -1,4 +1,4 @@
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+﻿import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import java.util.Properties
 
 plugins {
@@ -26,11 +26,11 @@ val discordApplicationIdLong = discordApplicationId.toLongOrNull() ?: 1165706613
 val discordRedirectScheme = "discord-$discordApplicationId"
 
 android {
-    namespace = "com.shahdullah.nomatune"
+    namespace = "com.aaravsharma.tideflow"
     compileSdk = 37
 
     defaultConfig {
-    applicationId = "com.shahdullah.nomatune"
+    applicationId = "com.aaravsharma.tideflow"
         minSdk = 26
         targetSdk = 37
         versionCode = 16
