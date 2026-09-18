@@ -9,7 +9,7 @@
               android:name=".discord.DiscordOAuthCallbackActivity"
               android:exported="true"
               android:noHistory="true"
-              android:theme="@style/Theme.NomaTune">
+              android:theme="@style/Theme.TideFlow">
               <intent-filter>
                   <action android:name="android.intent.action.VIEW" />
 
