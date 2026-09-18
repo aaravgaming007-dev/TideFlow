@@ -1,4 +1,4 @@
-﻿/*
+/*
  * NomaTune (2026)
  * © Shahdullah — github.com/shahdullah
  * GPL-3.0 License | Contributors: see git history
@@ -643,8 +643,8 @@ fun AppearanceSettings(
 
             item {
                 SwitchPreference(
-                    title = { Text(stringResource(R.string.nomatune_canvas)) },
-                    description = stringResource(R.string.nomatune_canvas_desc),
+                    title = { Text(stringResource(R.string.tideflow_canvas)) },
+                    description = stringResource(R.string.tideflow_canvas_desc),
                     icon = { Icon(painterResource(R.drawable.motion_photos_on), null) },
                     checked = archiveTuneCanvasEnabled,
                     onCheckedChange = onArchiveTuneCanvasEnabledChange,
