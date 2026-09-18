@@ -345,8 +345,8 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach 
         freeCompilerArgs.addAll(
             "-opt-in=kotlin.RequiresOptIn"
         )
-        // Suppress warnings
-        suppressWarnings.set(true)
+        suppressWarnings.set(false)
+        allWarningsAsErrors.set(false)
     }
 }
 
