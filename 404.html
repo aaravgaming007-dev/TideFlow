@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Releases & Changelogs — TideFlow</title>
-    <meta name="description" content="Download official TideFlow APK releases and view live changelogs automatically synced with GitHub Releases.">
+    <title>404 — Frequency Lost | TideFlow</title>
+    <meta name="description" content="404 Page Not Found. The audio track or page you are looking for has shifted frequency or does not exist.">
     <link rel="icon" type="image/jpeg" href="tideflownew.jpg">
     <link rel="apple-touch-icon" href="tideflownew.jpg">
 
@@ -23,7 +23,7 @@
         <div class="loader-progress-matrix-bar">
             <div class="loader-progress-matrix-fill" id="loaderMatrixProgressBarNode"></div>
         </div>
-        <p style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #64748b; letter-spacing: 1px;">SYNCING GITHUB RELEASES...</p>
+        <p style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #64748b; letter-spacing: 1px;">LOCATING FREQUENCY...</p>
     </div>
 
     <div id="scroll-tracker"></div>
@@ -40,7 +40,7 @@
         <div class="nav-links-desktop">
             <a href="index.html" class="desktop-nav-link">Home</a>
             <a href="features.html" class="desktop-nav-link">Features</a>
-            <a href="releases.html" class="desktop-nav-link active">Releases</a>
+            <a href="releases.html" class="desktop-nav-link">Releases</a>
             <a href="install.html" class="desktop-nav-link">Installation</a>
             <a href="security.html" class="desktop-nav-link">Security</a>
         </div>
@@ -70,7 +70,7 @@
         <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 30px;">
             <a href="index.html" class="side-link"><i class="fas fa-house"></i> Home</a>
             <a href="features.html" class="side-link"><i class="fas fa-bolt"></i> Core Features</a>
-            <a href="releases.html" class="side-link active"><i class="fas fa-tags"></i> Releases & Builds</a>
+            <a href="releases.html" class="side-link"><i class="fas fa-tags"></i> Releases & Builds</a>
             <a href="install.html" class="side-link"><i class="fas fa-download"></i> Installation Guide</a>
             <a href="security.html" class="side-link"><i class="fas fa-shield-halved"></i> Security Registry</a>
             <a href="privacy.html" class="side-link"><i class="fas fa-lock"></i> Privacy Policy</a>
@@ -109,43 +109,22 @@
         </button>
     </div>
 
-    <main class="page-container">
-        
-        <header class="page-header-block">
-            <span class="page-tagline">AUTOMATIC LIVE GITHUB TELEMETRY</span>
-            <h1 class="page-title">Releases & Changelogs</h1>
-            <p class="page-subtitle">
-                Every release is automatically compiled and mirrored directly from the official 
-                <code>aaravgaming007-dev/TideFlow</code> repository. Whenever a new version is published, it appears here instantly.
-            </p>
-        </header>
-
-        <!-- Dynamic GitHub Releases Feed -->
-        <section class="releases-feed-wrapper" id="dynamic-releases-feed">
-            <div style="text-align: center; padding: 60px 20px; color: var(--text-muted); font-family: 'Space Mono', monospace;">
-                <i class="fas fa-circle-notch fa-spin" style="font-size: 2rem; margin-bottom: 15px; color: #ffffff;"></i>
-                <p>Fetching real-time release manifest from GitHub REST API...</p>
-            </div>
-        </section>
-
-        <!-- Release Verification Notice -->
-        <div class="security-registry-card" style="margin-top: 50px;">
-            <h3>Automated Verification & Integrity</h3>
-            <p style="opacity: 0.7; font-size: 0.9rem; margin: 10px 0 20px; line-height: 1.6;">
-                TideFlow packages are cryptographically signed during build generation. You can verify downloaded APK checksums against official GitHub digests on our <a href="security.html" style="color: #ffffff; text-decoration: underline;">Security Page</a>.
-            </p>
-            <div style="display: flex; gap: 15px; flex-wrap: wrap;">
-                <a href="security.html" class="btn-github" style="padding: 10px 24px; font-size: 0.85rem;">
-                    <i class="fas fa-fingerprint"></i>
-                    <span>Verify Checksums</span>
-                </a>
-                <a href="install.html" class="btn-discord" style="padding: 10px 24px; font-size: 0.85rem;">
-                    <i class="fas fa-book-open"></i>
-                    <span>Installation Guide</span>
-                </a>
-            </div>
+    <main class="page-container error-hero">
+        <div class="error-code-glitch">404</div>
+        <h1 class="error-title">FREQUENCY OUT OF RANGE</h1>
+        <p class="error-desc">
+            The requested track, stream node, or URL has drifted out of resonance or was moved to another frequency.
+        </p>
+        <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+            <a href="index.html" class="btn-github" style="padding: 12px 30px; font-size: 0.95rem;">
+                <i class="fas fa-house"></i>
+                <span>Return to Home</span>
+            </a>
+            <a href="releases.html" class="btn-discord" style="padding: 12px 30px; font-size: 0.95rem;">
+                <i class="fas fa-tags"></i>
+                <span>View Releases</span>
+            </a>
         </div>
-
     </main>
 
     <!-- Footer -->
@@ -164,8 +143,7 @@
         <div style="display: flex; justify-content: center; gap: 15px; align-items: center; flex-wrap: wrap; margin-top: 20px;">
             <a href="index.html" class="btn-privacy">Home</a>
             <a href="features.html" class="btn-privacy">Features</a>
-            <a href="releases.html" class="btn-privacy" style="color: #ffffff !important; border-color: rgba(255,255,255,0.3);">Releases</a>
-            <a href="install.html" class="btn-privacy">Installation</a>
+            <a href="releases.html" class="btn-privacy">Releases</a>
             <a href="security.html" class="btn-privacy">Security</a>
             <a href="privacy.html" class="btn-privacy">Privacy Policy</a>
             <a href="terms.html" class="btn-privacy">Terms</a>

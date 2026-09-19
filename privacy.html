@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Releases & Changelogs — TideFlow</title>
-    <meta name="description" content="Download official TideFlow APK releases and view live changelogs automatically synced with GitHub Releases.">
+    <title>Privacy Policy — TideFlow</title>
+    <meta name="description" content="TideFlow's Privacy Policy. Learn why TideFlow collects zero personal data, tracks no user activity, and respects your digital rights.">
     <link rel="icon" type="image/jpeg" href="tideflownew.jpg">
     <link rel="apple-touch-icon" href="tideflownew.jpg">
 
@@ -23,7 +23,7 @@
         <div class="loader-progress-matrix-bar">
             <div class="loader-progress-matrix-fill" id="loaderMatrixProgressBarNode"></div>
         </div>
-        <p style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #64748b; letter-spacing: 1px;">SYNCING GITHUB RELEASES...</p>
+        <p style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #64748b; letter-spacing: 1px;">LOADING PRIVACY MANIFEST...</p>
     </div>
 
     <div id="scroll-tracker"></div>
@@ -40,7 +40,7 @@
         <div class="nav-links-desktop">
             <a href="index.html" class="desktop-nav-link">Home</a>
             <a href="features.html" class="desktop-nav-link">Features</a>
-            <a href="releases.html" class="desktop-nav-link active">Releases</a>
+            <a href="releases.html" class="desktop-nav-link">Releases</a>
             <a href="install.html" class="desktop-nav-link">Installation</a>
             <a href="security.html" class="desktop-nav-link">Security</a>
         </div>
@@ -70,10 +70,10 @@
         <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 30px;">
             <a href="index.html" class="side-link"><i class="fas fa-house"></i> Home</a>
             <a href="features.html" class="side-link"><i class="fas fa-bolt"></i> Core Features</a>
-            <a href="releases.html" class="side-link active"><i class="fas fa-tags"></i> Releases & Builds</a>
+            <a href="releases.html" class="side-link"><i class="fas fa-tags"></i> Releases & Builds</a>
             <a href="install.html" class="side-link"><i class="fas fa-download"></i> Installation Guide</a>
             <a href="security.html" class="side-link"><i class="fas fa-shield-halved"></i> Security Registry</a>
-            <a href="privacy.html" class="side-link"><i class="fas fa-lock"></i> Privacy Policy</a>
+            <a href="privacy.html" class="side-link active"><i class="fas fa-lock"></i> Privacy Policy</a>
             <a href="terms.html" class="side-link"><i class="fas fa-file-contract"></i> Terms of Service</a>
         </div>
 
@@ -112,39 +112,60 @@
     <main class="page-container">
         
         <header class="page-header-block">
-            <span class="page-tagline">AUTOMATIC LIVE GITHUB TELEMETRY</span>
-            <h1 class="page-title">Releases & Changelogs</h1>
+            <span class="page-tagline">TRANSPARENCY & USER INTEGRITY</span>
+            <h1 class="page-title">Privacy Policy</h1>
             <p class="page-subtitle">
-                Every release is automatically compiled and mirrored directly from the official 
-                <code>aaravgaming007-dev/TideFlow</code> repository. Whenever a new version is published, it appears here instantly.
+                Last updated: September 2026. TideFlow is developed under strict privacy-first principles. We believe your music preferences, playlists, and listening habits are your personal business.
             </p>
         </header>
 
-        <!-- Dynamic GitHub Releases Feed -->
-        <section class="releases-feed-wrapper" id="dynamic-releases-feed">
-            <div style="text-align: center; padding: 60px 20px; color: var(--text-muted); font-family: 'Space Mono', monospace;">
-                <i class="fas fa-circle-notch fa-spin" style="font-size: 2rem; margin-bottom: 15px; color: #ffffff;"></i>
-                <p>Fetching real-time release manifest from GitHub REST API...</p>
+        <!-- Privacy Policy Card -->
+        <article class="legal-card-wrapper reveal">
+            
+            <div class="legal-section">
+                <h2><i class="fas fa-shield-heart" style="color: #00ff88;"></i> 1. Zero Data Collection</h2>
+                <p>
+                    TideFlow is built without trackers, analytics SDKs, or data harvesting scripts. Specifically:
+                </p>
+                <ul>
+                    <li>We do <strong>not</strong> collect your IP address, name, email address, or device unique identifiers.</li>
+                    <li>We do <strong>not</strong> use Google Analytics, Firebase Analytics, Mixpanel, AppsFlyer, or any commercial telemetry providers.</li>
+                    <li>We do <strong>not</strong> sell, rent, monetize, or trade any user metadata.</li>
+                </ul>
             </div>
-        </section>
 
-        <!-- Release Verification Notice -->
-        <div class="security-registry-card" style="margin-top: 50px;">
-            <h3>Automated Verification & Integrity</h3>
-            <p style="opacity: 0.7; font-size: 0.9rem; margin: 10px 0 20px; line-height: 1.6;">
-                TideFlow packages are cryptographically signed during build generation. You can verify downloaded APK checksums against official GitHub digests on our <a href="security.html" style="color: #ffffff; text-decoration: underline;">Security Page</a>.
-            </p>
-            <div style="display: flex; gap: 15px; flex-wrap: wrap;">
-                <a href="security.html" class="btn-github" style="padding: 10px 24px; font-size: 0.85rem;">
-                    <i class="fas fa-fingerprint"></i>
-                    <span>Verify Checksums</span>
-                </a>
-                <a href="install.html" class="btn-discord" style="padding: 10px 24px; font-size: 0.85rem;">
-                    <i class="fas fa-book-open"></i>
-                    <span>Installation Guide</span>
-                </a>
+            <div class="legal-section">
+                <h2><i class="fas fa-database" style="color: #00f2fe;"></i> 2. Local Storage & Cache</h2>
+                <p>
+                    All your app configurations, favorites, listening logs, and cached audio files reside exclusively inside the private SQLite sandbox on your local Android device.
+                </p>
+                <p>
+                    You retain 100% control of this data at all times. Uninstalling the application or clearing app data immediately purges all local storage.
+                </p>
             </div>
-        </div>
+
+            <div class="legal-section">
+                <h2><i class="fas fa-globe" style="color: #8a2be2;"></i> 3. Direct Network Communication</h2>
+                <p>
+                    When searching or streaming, TideFlow sends direct HTTPS requests to public endpoints (such as YouTube Music InnerTube and community lyric providers) solely to fetch audio streams and synchronized LRC lyrics. These requests occur directly between your device and the destination endpoints without intermediate logging proxies operated by TideFlow.
+                </p>
+            </div>
+
+            <div class="legal-section">
+                <h2><i class="fas fa-code-branch" style="color: #ffffff;"></i> 4. Open-Source Verification</h2>
+                <p>
+                    Our complete application codebase is public and verifiable on GitHub. Anyone can inspect, build, audit, or fork the code to verify that our privacy promises are faithfully maintained.
+                </p>
+            </div>
+
+            <div class="legal-section">
+                <h2><i class="fas fa-envelope-open-text" style="color: #ff007f;"></i> 5. Contact & Inquiries</h2>
+                <p>
+                    If you have questions regarding this Privacy Policy, you can reach out via GitHub Issues on our repository or message the developer directly on Instagram: <code>@aarav_sharma_sui</code>.
+                </p>
+            </div>
+
+        </article>
 
     </main>
 
@@ -164,10 +185,9 @@
         <div style="display: flex; justify-content: center; gap: 15px; align-items: center; flex-wrap: wrap; margin-top: 20px;">
             <a href="index.html" class="btn-privacy">Home</a>
             <a href="features.html" class="btn-privacy">Features</a>
-            <a href="releases.html" class="btn-privacy" style="color: #ffffff !important; border-color: rgba(255,255,255,0.3);">Releases</a>
-            <a href="install.html" class="btn-privacy">Installation</a>
+            <a href="releases.html" class="btn-privacy">Releases</a>
             <a href="security.html" class="btn-privacy">Security</a>
-            <a href="privacy.html" class="btn-privacy">Privacy Policy</a>
+            <a href="privacy.html" class="btn-privacy" style="color: #ffffff !important; border-color: rgba(255,255,255,0.3);">Privacy Policy</a>
             <a href="terms.html" class="btn-privacy">Terms</a>
             <a href="https://github.com/aaravgaming007-dev/TideFlow" target="_blank" rel="noopener" class="btn-privacy">GitHub</a>
             <a href="https://instagram.com/aarav_sharma_sui" target="_blank" rel="noopener" class="btn-privacy">Instagram</a>
