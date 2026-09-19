@@ -68,17 +68,18 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.layout.only
 import androidx.compose.foundation.layout.WindowInsetsSides
 import com.aaravsharma.tideflow.currentBuildHash
+import com.aaravsharma.tideflow.utils.openSafeUri
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import androidx.compose.runtime.rememberCoroutineScope
 import android.widget.Toast
 import androidx.compose.material3.CircularProgressIndicator
-import io.ktor.client.HttpClient
-import io.ktor.client.engine.okhttp.OkHttp
-import io.ktor.client.request.get
-import io.ktor.client.statement.bodyAsText
-import io.ktor.client.statement.HttpResponse
-import io.ktor.client.request.headers
+import org.json.JSONArray
 import org.json.JSONObject
+import java.net.HttpURLConnection
+import java.net.URL
+import androidx.compose.ui.layout.ContentScale
 
 data class TeamMember(
     val avatarModel: Any,
@@ -168,14 +169,42 @@ fun AboutScreen(
     scrollBehavior: TopAppBarScrollBehavior,
 ) {
     val context = LocalContext.current
-    val uriHandler = LocalUriHandler.current
-    val httpClient = remember { HttpClient(OkHttp) }
-    DisposableEffect(Unit) {
-        onDispose { httpClient.close() }
-    }
     val nightlyBuildHash = currentBuildHash
     var isCheckingUpdate by remember { mutableStateOf(false) }
+    var totalDownloads by remember { mutableStateOf<Int?>(null) }
     val coroutineScope = rememberCoroutineScope()
+
+    LaunchedEffect(Unit) {
+        withContext(Dispatchers.IO) {
+            try {
+                val url = URL("https://api.github.com/repos/aaravgaming007-dev/TideFlow/releases")
+                val connection = (url.openConnection() as HttpURLConnection).apply {
+                    setRequestProperty("Accept", "application/vnd.github+json")
+                    setRequestProperty("User-Agent", "TideFlow")
+                    connectTimeout = 8000
+                    readTimeout = 8000
+                }
+                if (connection.responseCode in 200..299) {
+                    val body = connection.inputStream.bufferedReader().use { it.readText() }
+                    val jsonArray = JSONArray(body)
+                    var count = 0
+                    for (i in 0 until jsonArray.length()) {
+                        val release = jsonArray.optJSONObject(i)
+                        val assets = release?.optJSONArray("assets")
+                        if (assets != null) {
+                            for (j in 0 until assets.length()) {
+                                count += assets.optJSONObject(j)?.optInt("download_count", 0) ?: 0
+                            }
+                        }
+                    }
+                    withContext(Dispatchers.Main) {
+                        totalDownloads = count
+                    }
+                }
+            } catch (_: Exception) {}
+        }
+    }
+
     val leadDeveloper = TeamMember(
         avatarModel = R.drawable.aarav_avatar,
         name = "AARAV SHARMA",
@@ -254,7 +283,7 @@ fun AboutScreen(
             }
 
             Row(verticalAlignment = Alignment.CenterVertically) {
-                AboutBadge(text = BuildConfig.VERSION_NAME)
+                AboutBadge(text = "v${BuildConfig.VERSION_NAME.removePrefix("v")}")
 
                 nightlyBuildHash?.let {
                     Spacer(Modifier.width(4.dp))
@@ -270,11 +299,61 @@ fun AboutScreen(
                 }
             }
 
-            Spacer(Modifier.height(8.dp))
+            Spacer(Modifier.height(12.dp))
+
+            Card(
+                shape = RoundedCornerShape(20.dp),
+                colors = CardDefaults.cardColors(
+                    containerColor = MaterialTheme.colorScheme.surfaceContainerHigh,
+                ),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp),
+            ) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp, vertical = 12.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    Box(
+                        modifier = Modifier
+                            .size(42.dp)
+                            .clip(CircleShape)
+                            .background(MaterialTheme.colorScheme.primaryContainer),
+                        contentAlignment = Alignment.Center,
+                    ) {
+                        Icon(
+                            painter = painterResource(R.drawable.download),
+                            contentDescription = null,
+                            tint = MaterialTheme.colorScheme.onPrimaryContainer,
+                            modifier = Modifier.size(22.dp),
+                        )
+                    }
+
+                    Spacer(Modifier.width(14.dp))
+
+                    Column {
+                        Text(
+                            text = "Total Downloads",
+                            style = MaterialTheme.typography.labelMedium,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                        Text(
+                            text = totalDownloads?.let { "$it+" } ?: "144+",
+                            style = MaterialTheme.typography.titleLarge,
+                            fontWeight = FontWeight.Bold,
+                            color = MaterialTheme.colorScheme.onSurface,
+                        )
+                    }
+                }
+            }
+
+            Spacer(Modifier.height(12.dp))
 
             Row {
                 IconButton(
-                    onClick = { uriHandler.openUri("https://github.com/aaravgaming007-dev/TideFlow/") },
+                    onClick = { openSafeUri(context, "https://github.com/aaravgaming007-dev/TideFlow/") },
                 ) {
                     Icon(
                         painter = painterResource(R.drawable.github),
@@ -285,7 +364,7 @@ fun AboutScreen(
                 Spacer(Modifier.width(8.dp))
 
                 IconButton(
-                    onClick = { uriHandler.openUri("https://aaravsharma.pages.dev") },
+                    onClick = { openSafeUri(context, "https://aaravsharma.pages.dev") },
                 ) {
                     Icon(
                         painter = painterResource(R.drawable.website),
@@ -296,7 +375,7 @@ fun AboutScreen(
                 Spacer(Modifier.width(8.dp))
 
                 IconButton(
-                    onClick = { uriHandler.openUri("https://instagram.com/aarav_sharma_sui") },
+                    onClick = { openSafeUri(context, "https://instagram.com/aarav_sharma_sui") },
                 ) {
                     Icon(
                         painter = painterResource(R.drawable.instagram),
@@ -307,7 +386,7 @@ fun AboutScreen(
                 Spacer(Modifier.width(8.dp))
 
                 IconButton(
-                    onClick = { uriHandler.openUri("upi://pay?pa=ghanshyamsharma.nlu@okicici&pn=AARAV%20SHARMA&cu=INR") },
+                    onClick = { openSafeUri(context, "upi://pay?pa=ghanshyamsharma.nlu@okicici&pn=AARAV%20SHARMA&cu=INR") },
                 ) {
                     Icon(
                         painter = painterResource(R.drawable.coffee),
@@ -324,7 +403,7 @@ fun AboutScreen(
             ) {
                 OutlinedButton(
                     onClick = {
-                        uriHandler.openUri("upi://pay?pa=ghanshyamsharma.nlu@okicici&pn=AARAV%20SHARMA&cu=INR")
+                        openSafeUri(context, "upi://pay?pa=ghanshyamsharma.nlu@okicici&pn=AARAV%20SHARMA&cu=INR")
                     },
                 ) {
                     Icon(
@@ -341,21 +420,37 @@ fun AboutScreen(
                         coroutineScope.launch {
                             isCheckingUpdate = true
                             try {
-                                val response = httpClient.get("https://api.github.com/repos/aaravgaming007-dev/TideFlow/releases/latest") {
-                                    headers { append("Accept", "application/vnd.github+json") }
+                                withContext(Dispatchers.IO) {
+                                    val url = URL("https://api.github.com/repos/aaravgaming007-dev/TideFlow/releases/latest")
+                                    val connection = (url.openConnection() as HttpURLConnection).apply {
+                                        setRequestProperty("Accept", "application/vnd.github+json")
+                                        setRequestProperty("User-Agent", "TideFlow")
+                                        connectTimeout = 8000
+                                        readTimeout = 8000
+                                    }
+                                    if (connection.responseCode in 200..299) {
+                                        val body = connection.inputStream.bufferedReader().use { it.readText() }
+                                        val json = JSONObject(body)
+                                        val tagName = json.optString("tag_name", "")
+                                        val htmlUrl = json.optString("html_url", "")
+                                        val latestVersion = tagName.removePrefix("v").removePrefix("V")
+                                        withContext(Dispatchers.Main) {
+                                            if (latestVersion.isNotBlank() && Updater.isUpdateAvailable(latestVersion, BuildConfig.VERSION_NAME) && htmlUrl.isNotBlank()) {
+                                                openSafeUri(context, htmlUrl)
+                                            } else {
+                                                Toast.makeText(context, "You're up to date!", Toast.LENGTH_SHORT).show()
+                                            }
+                                        }
+                                    } else {
+                                        withContext(Dispatchers.Main) {
+                                            Toast.makeText(context, "Failed to check for updates", Toast.LENGTH_SHORT).show()
+                                        }
+                                    }
                                 }
-                                val body = response.bodyAsText()
-                                val json = JSONObject(body)
-                                val tagName = json.optString("tag_name", "")
-                                val htmlUrl = json.optString("html_url", "")
-                                val latestVersion = tagName.removePrefix("v")
-                                if (latestVersion.isNotBlank() && Updater.isUpdateAvailable(latestVersion, BuildConfig.VERSION_NAME) && htmlUrl.isNotBlank()) {
-                                    uriHandler.openUri(htmlUrl)
-                                } else {
-                                    Toast.makeText(context, "You're up to date!", Toast.LENGTH_SHORT).show()
+                            } catch (_: Exception) {
+                                withContext(Dispatchers.Main) {
+                                    Toast.makeText(context, "Failed to check for updates", Toast.LENGTH_SHORT).show()
                                 }
-                            } catch (e: Exception) {
-                                Toast.makeText(context, "Failed to check for updates", Toast.LENGTH_SHORT).show()
                             } finally {
                                 isCheckingUpdate = false
                             }
@@ -385,7 +480,7 @@ fun AboutScreen(
 
             LeadDeveloperCard(
                 member = leadDeveloper,
-                onOpenUri = uriHandler::openUri,
+                onOpenUri = { url -> openSafeUri(context, url) },
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(horizontal = 16.dp)
@@ -401,7 +496,7 @@ fun AboutScreen(
 
             LeadDeveloperCard(
                 member = baseFramework,
-                onOpenUri = uriHandler::openUri,
+                onOpenUri = { url -> openSafeUri(context, url) },
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(horizontal = 16.dp)
@@ -455,19 +550,37 @@ private fun LeadDeveloperCard(
                 .padding(20.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            AsyncImage(
-                model = member.avatarModel,
-                contentDescription = member.name,
-                modifier = Modifier
-                    .size(80.dp)
-                    .clip(CircleShape)
-                    .border(
-                        width = 1.dp,
-                        color = MaterialTheme.colorScheme.primary,
-                        shape = CircleShape
-                    )
-                    .background(MaterialTheme.colorScheme.surfaceVariant),
-            )
+            if (member.avatarModel is Int) {
+                Image(
+                    painter = painterResource(member.avatarModel),
+                    contentDescription = member.name,
+                    contentScale = ContentScale.Crop,
+                    modifier = Modifier
+                        .size(80.dp)
+                        .clip(CircleShape)
+                        .border(
+                            width = 1.dp,
+                            color = MaterialTheme.colorScheme.primary,
+                            shape = CircleShape
+                        )
+                        .background(MaterialTheme.colorScheme.surfaceVariant),
+                )
+            } else {
+                AsyncImage(
+                    model = member.avatarModel,
+                    contentDescription = member.name,
+                    contentScale = ContentScale.Crop,
+                    modifier = Modifier
+                        .size(80.dp)
+                        .clip(CircleShape)
+                        .border(
+                            width = 1.dp,
+                            color = MaterialTheme.colorScheme.primary,
+                            shape = CircleShape
+                        )
+                        .background(MaterialTheme.colorScheme.surfaceVariant),
+                )
+            }
 
             Spacer(Modifier.height(12.dp))
 

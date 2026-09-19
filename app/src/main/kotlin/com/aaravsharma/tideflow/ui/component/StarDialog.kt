@@ -1,4 +1,4 @@
-﻿/*
+/*
  * NomaTune (2026)
  * © Shahdullah — github.com/shahdullah
  * GPL-3.0 License | Contributors: see git history
@@ -48,6 +48,7 @@ fun StarDialog(
     onLater: () -> Unit,
 ) {
     val uriHandler = LocalUriHandler.current
+    val context = androidx.compose.ui.platform.LocalContext.current
     val sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
 
     ModalBottomSheet(
@@ -73,7 +74,7 @@ fun StarDialog(
 
             Button(
                 onClick = {
-                    uriHandler.openUri("upi://pay?pa=ghanshyamsharma.nlu@okicici&pn=AARAV%20SHARMA&cu=INR")
+                    com.aaravsharma.tideflow.utils.openSafeUri(context, "upi://pay?pa=ghanshyamsharma.nlu@okicici&pn=AARAV%20SHARMA&cu=INR")
                     onSupport()
                 },
                 modifier = Modifier.fillMaxWidth(),
