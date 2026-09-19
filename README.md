@@ -1,131 +1,113 @@
-﻿<div align="center">
+<div align="center">
 
   <img src="assets/ic_launcher-playstore.png" width="120" alt="TideFlow Logo"/>
 
   # TideFlow
 
-  ### The Material 3 Expressive Music Player
+  ### Pure Open-Source Android Music Streaming
 
-  **Stream. Save. Loop. Repeat.**
+  **Zero Ads. Zero Tracking. Pure Sound.**
 
-  A modern Android music player with YouTube Music integration, local file playback, synced lyrics, offline downloads, and a clean Material 3 Expressive interface.
+  A modern, elegant, and ad-free Android music player powered by YouTube Music, engineered with Kotlin, Jetpack Compose, Material You dynamic theming, real-time synchronized lyrics, and local offline caching.
 
   [![License: GPL v3](https://img.shields.io/badge/License-GPL_v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
   [![Platform](https://img.shields.io/badge/platform-Android-green.svg)](https://www.android.com)
-  [![GitHub release](https://img.shields.io/github/v/release/AARAV SHARMA/TideFlow?color=orange)](https://github.com/AARAV SHARMA/TideFlow/releases)
-  [![GitHub stars](https://img.shields.io/github/stars/AARAV SHARMA/TideFlow?style=social)](https://github.com/AARAV SHARMA/TideFlow/stargazers)
+  [![GitHub release](https://img.shields.io/github/v/release/aaravgaming007-dev/TideFlow?color=orange)](https://github.com/aaravgaming007-dev/TideFlow/releases)
+  [![GitHub stars](https://img.shields.io/github/stars/aaravgaming007-dev/TideFlow?style=social)](https://github.com/aaravgaming007-dev/TideFlow/stargazers)
+  [![GitHub downloads](https://img.shields.io/github/downloads/aaravgaming007-dev/TideFlow/total?color=brightgreen)](https://github.com/aaravgaming007-dev/TideFlow/releases)
 
-  [**📥 Download**](https://github.com/AARAV SHARMA/TideFlow/releases/latest) • [**🌐 Website**](https://tideflow.vercel.app) • [**🐛 Report Bug**](https://github.com/AARAV SHARMA/TideFlow/issues)
+  [**📥 Download Latest APK**](https://github.com/aaravgaming007-dev/TideFlow/releases/latest) • [**🌐 Developer Website**](https://aaravsharma.pages.dev) • [**🐛 Report an Issue**](https://github.com/aaravgaming007-dev/TideFlow/issues)
 
-  </div>
+</div>
 
-  ---
+---
 
-  ## ✨ Features
+## 📱 Screenshots
 
-  ### 🎧 Playback
-  - Ad-free streaming with background listening
-  - Multiple account support with quick switching
-  - Local file & playlist support
-  - Fast startup, lightweight performance
-  - EBU R128 loudness normalization
-  - Tempo, pitch, and playback speed controls
-  - Crossfade between tracks
-  - System equalizer & spatial audio
+<p align="center">
+  <img src="screenshots/home.png" width="19%" alt="Home Screen" />
+  <img src="screenshots/now_playing.png" width="19%" alt="Now Playing" />
+  <img src="screenshots/lyrics.png" width="19%" alt="Synced Lyrics" />
+  <img src="screenshots/artist.png" width="19%" alt="Artist Page" />
+  <img src="screenshots/about.png" width="19%" alt="About Screen" />
+</p>
 
-  ### 🎤 Lyrics & Discovery
-  - Live synced lyrics
-  - AI translation & romanization
-  - Music recognition (Shazam-style)
-  - Real-time listening statistics
-  - Import playlists from Spotify
-  - YouTube Music account sync
-  - Last.fm scrobbling
-  - ListenBrainz history sync
-  - Discord rich presence
+---
 
-  ### 🎨 Design
-  - Material 3 Expressive design language
-  - Album-art powered dynamic colors
-  - 9 different player styles
-  - 8 different player background styles
-  - Responsive layouts for any screen
-  - Clean browsing, player, artist, album, and lyrics views
+## ✨ Features
 
-  ### ⚙️ Customization
-  - Deep playback & interface settings
-  - Dynamic color theming
-  - Gesture customization
-  - Animation & layout tuning
-  - Flexible controls
+### 🎧 100% Ad-Free Audio
+- Direct YouTube Music streaming pipeline with zero commercial interruptions
+- Background playback and lock-screen controls
+- Audiophile streaming support: Opus 320 kbps decoding & FLAC support
+- Gapless crossfade playback & customizable audio equalizers
+- EBU R128 loudness normalization
+- Pitch, tempo, and playback speed adjustment
 
-  ---
+### 🎤 Real-Time Synced Lyrics
+- Word-by-word and line-by-line synchronized LRC lyrics
+- Multi-provider lyric engines (LRCLIB, BetterLyrics, KuGou, and Paxsenix)
+- AI-driven multi-language lyrics translation and romanization
+- Interactive lyrics view with click-to-seek playback
+- Shareable lyric cards generator
 
-  ## 📱 Screenshots
+### 🎨 Material You & True Black OLED
+- Adaptive Monet dynamic color extraction from album artwork
+- True pitch-black AMOLED dark mode for battery savings
+- Motion video backdrops and animated canvas art
+- Multiple player layouts and responsive UI for phones, foldables, and tablets
 
-  <p align="center">
-    <img src="screenshots/home.jpeg" width="22%" alt="Home Screen" />
-    <img src="screenshots/now_playing.jpeg" width="22%" alt="Now Playing" />
-    <img src="screenshots/lyrics.jpeg" width="22%" alt="Lyrics" />
-    <img src="screenshots/settings.jpeg" width="22%" alt="Settings" />
-  </p>
-  <p align="center">
-    <img src="screenshots/stats.jpeg" width="22%" alt="Stats" />
-    <img src="screenshots/artist.jpeg" width="22%" alt="Artist" />
-    <img src="screenshots/year_recap.jpeg" width="22%" alt="Year Recap" />
-  </p>
+### 💾 Local Vault & Offline Downloads
+- Instant one-tap offline song caching
+- High-speed multithreaded downloads with background pre-fetching
+- Local audio library management with metadata editing & tag scanner
+- One-click Spotify playlist import
 
-  ---
+### 🌐 Ecosystem & Integrations
+- Real-time Discord Rich Presence (RPC) showing your currently playing track
+- Last.fm & ListenBrainz real-time scrobbling
+- Shazam-powered music recognition
+- YouTube Music account sync and custom playlist cloud backups
 
-  ## 📥 Installation
+---
 
-  ### 🔽 Direct APK
-  1. Go to [Releases](https://github.com/AARAV SHARMA/TideFlow/releases/latest)
-  2. Download the APK for your device (arm64 recommended for most phones)
-  3. Install on your Android device (enable "Install from unknown sources")
+## 📥 Installation
 
-  ### 📦 Coming Soon
-  - F-Droid
-  - IzzyOnDroid
-  - Obtainium
+### 🔽 Direct APK Download
+1. Head over to [GitHub Releases](https://github.com/aaravgaming007-dev/TideFlow/releases/latest).
+2. Download the latest `universal` APK (or device-specific architecture).
+3. Open the downloaded file and install on your device (allow *Install from Unknown Sources* if prompted).
 
-  ---
+---
 
-  ## 🛠️ Building from Source
+## 🛠️ Building from Source
 
-  ### Requirements
-  - Android Studio Ladybug or newer
-  - JDK 21
-  - Android SDK 37
+### Prerequisites
+- Android Studio Ladybug or newer
+- JDK 21
+- Android SDK 37 (API 35+ recommended)
 
-  ### Steps
-  ```bash
-  git clone https://github.com/AARAV SHARMA/TideFlow.git
-  cd TideFlow
-  ./gradlew assembleGmsMobileUniversalRelease
-  ```
+### Build Commands
+```bash
+# Clone the repository
+git clone https://github.com/aaravgaming007-dev/TideFlow.git
+cd TideFlow
 
-  ---
+# Assemble universal release APK
+./gradlew assembleGmsMobileUniversalRelease
+```
 
-  ## 📄 License
+---
 
-  This project is licensed under the **GNU General Public License v3.0** — see [LICENSE](LICENSE) for details.
+## 📄 License
 
-  
+This project is licensed under the **GNU General Public License v3.0** — see the [LICENSE](LICENSE) file for details.
 
-  ## ❤️ Credits & Inspiration
+---
 
-  This project acknowledges and credits @rukamori/ArchiveTune as a primary source of inspiration for design and feature ideas.
+<div align="center">
 
-  - Repository: https://github.com/rukamori/ArchiveTune
-  - Author: @rukamori
-  - Base framework: ArchiveTune (https://github.com/rukamori/ArchiveTune)
-  - Inspired by: @rukamori/ArchiveTune
+  **TideFlow** is engineered with ❤️ by [**Aarav Sharma**](https://github.com/aaravgaming007-dev)  
+  [Website](https://aaravsharma.pages.dev) • [Instagram](https://instagram.com/aarav_sharma_sui) • [GitHub](https://github.com/aaravgaming007-dev)
 
-  Thank you to rukamori for the inspiration; parts of the UI/UX and some feature concepts were adapted with respect and appreciation. If you are the original author and would like additional attribution or changes, please open an issue or submit a pull request and we'll update this section promptly.
-
-  
-
-  © 2026 AARAV SHARMA — [github.com/shahdullah](https://github.com/shahdullah)
-
-  </div>
+</div>
