@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Installation & Setup Guide — TideFlow</title>
+    <meta name="description" content="Step-by-step instructions for sideloading and installing the TideFlow APK on Android devices.">
+    <link rel="icon" type="image/jpeg" href="tideflownew.jpg">
+    <link rel="apple-touch-icon" href="tideflownew.jpg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <img src="tideflownew.jpg" alt="TideFlow Logo" class="loader-logo">
+        <div class="wavy-text-container" id="wavy-text-anchor"></div>
+        <div class="loader-progress-matrix-bar">
+            <div class="loader-progress-matrix-fill" id="loaderMatrixProgressBarNode"></div>
+        </div>
+        <p style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #64748b; letter-spacing: 1px;">LOADING INSTALLATION MANUAL...</p>
+    </div>
+
+    <div id="scroll-tracker"></div>
+    <div class="ambient-glow"></div>
+    <div id="cursor-glow"></div>
+    <canvas id="tide-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html" class="nav-brand">
+            <img src="tideflownew.jpg" alt="TideFlow Logo" class="nav-logo">
+            <span>TideFlow</span>
+        </a>
+        <div class="nav-links-desktop">
+            <a href="index.html" class="desktop-nav-link">Home</a>
+            <a href="features.html" class="desktop-nav-link">Features</a>
+            <a href="releases.html" class="desktop-nav-link">Releases</a>
+            <a href="install.html" class="desktop-nav-link active">Installation</a>
+            <a href="security.html" class="desktop-nav-link">Security</a>
+        </div>
+        <div class="nav-actions">
+            <a href="https://github.com/aaravgaming007-dev/TideFlow" target="_blank" rel="noopener" class="btn-github-sm">
+                <i class="fab fa-github"></i>
+                <span>GitHub</span>
+            </a>
+            <button class="menu-trigger" aria-label="Open Navigation Drawer">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Side Menu -->
+    <div class="side-menu" id="sideMenu">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <img src="tideflownew.jpg" alt="TideFlow" style="width: 38px; height: 38px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.15);">
+                <h3 style="font-weight: 900; font-size: 1.25rem;">TideFlow Hub</h3>
+            </div>
+            <button class="menu-trigger" style="background: none; border: none; color: inherit; font-size: 1.4rem; cursor: pointer;">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 30px;">
+            <a href="index.html" class="side-link"><i class="fas fa-house"></i> Home</a>
+            <a href="features.html" class="side-link"><i class="fas fa-bolt"></i> Core Features</a>
+            <a href="releases.html" class="side-link"><i class="fas fa-tags"></i> Releases & Builds</a>
+            <a href="install.html" class="side-link active"><i class="fas fa-download"></i> Installation Guide</a>
+            <a href="security.html" class="side-link"><i class="fas fa-shield-halved"></i> Security Registry</a>
+        </div>
+
+        <div style="margin-top: auto;">
+            <a href="https://instagram.com/aarav_sharma_sui" target="_blank" rel="noopener" class="insta-btn">
+                <div>
+                    <strong>Developer Contact</strong>
+                    <p>@aarav_sharma_sui (Instagram)</p>
+                </div>
+                <i class="fab fa-instagram" style="font-size: 1.4rem; color: #ff007f;"></i>
+            </a>
+
+            <a href="https://github.com/aaravgaming007-dev/TideFlow" target="_blank" rel="noopener" class="insta-btn">
+                <div>
+                    <strong>Open Source Repository</strong>
+                    <p>aaravgaming007-dev/TideFlow</p>
+                </div>
+                <i class="fab fa-github" style="font-size: 1.4rem; color: #00f2fe;"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Floating Nav -->
+    <div class="floating-nav">
+        <a href="https://github.com/aaravgaming007-dev/TideFlow" target="_blank" rel="noopener" class="float-icon git" title="GitHub">
+            <i class="fab fa-github"></i>
+        </a>
+        <a href="index.html" class="float-icon" title="Home">
+            <i class="fas fa-house"></i>
+        </a>
+        <button class="float-icon menu-trigger" title="Menu">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+
+    <main class="page-container">
+        
+        <header class="page-header-block">
+            <span class="page-tagline">SIDELOADING MANUAL</span>
+            <h1 class="page-title">Installation Walkthrough</h1>
+            <p class="page-subtitle">
+                TideFlow is distributed as a clean, standalone APK directly from GitHub Releases. Follow this quick 3-step setup to get up and running on any Android 8.0+ device.
+            </p>
+        </header>
+
+        <!-- 3-Step Walkthrough Card -->
+        <div class="walkthrough-box reveal">
+            <div class="step-row">
+                <div class="step-num">1</div>
+                <div class="step-info">
+                    <h4>Download Official APK Binary</h4>
+                    <p>
+                        Download the latest release package directly to your Android device from our <a href="releases.html" style="color: #ffffff; text-decoration: underline;">Releases Page</a> or the button below. Always verify that you are downloading from <code>github.com/aaravgaming007-dev/TideFlow</code>.
+                    </p>
+                </div>
+            </div>
+
+            <div class="step-row">
+                <div class="step-num">2</div>
+                <div class="step-info">
+                    <h4>Allow "Install Unknown Apps"</h4>
+                    <p>
+                        When opening the APK, Android may prompt: <em>"For your security, your phone is not allowed to install unknown apps from this source"</em>. Tap <strong>Settings</strong> and toggle on <strong>"Allow from this source"</strong> for your browser or file manager.
+                    </p>
+                </div>
+            </div>
+
+            <div class="step-row">
+                <div class="step-num">3</div>
+                <div class="step-info">
+                    <h4>Complete Installation & Enjoy</h4>
+                    <p>
+                        Tap <strong>Install</strong>. Once completed, open TideFlow. You are immediately ready to search, stream, and download music—no Google login or account setup required!
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Download Action -->
+        <div class="security-registry-card reveal" style="margin-top: 30px; text-align: center;">
+            <h3 style="margin-bottom: 8px;">Ready To Install?</h3>
+            <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 0.9rem;">
+                Grab the latest verified binary package synced straight from GitHub.
+            </p>
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <a href="releases.html" class="btn-github" style="padding: 12px 30px;">
+                    <i class="fas fa-download"></i>
+                    <span>Download Latest APK</span>
+                </a>
+                <a href="security.html" class="btn-discord" style="padding: 12px 30px;">
+                    <i class="fas fa-shield-halved"></i>
+                    <span>Verify Checksum</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- FAQ Section for Installation -->
+        <h2 class="team-heading" style="margin-top: 60px;">Troubleshooting & FAQs</h2>
+        
+        <div class="faq-container-block reveal">
+            <div class="faq-wrapper-node">
+                <button class="faq-trigger-tab">
+                    <span>Google Play Protect Warning?</span>
+                    <i class="fas fa-chevron-down faq-icon-marker"></i>
+                </button>
+                <div class="faq-content-panel">
+                    <div class="faq-content-inner">
+                        Because TideFlow is an open-source project published independently outside the Google Play Store, Google Play Protect may show a generic prompt. You can safely click <strong>"More Details"</strong> &gt; <strong>"Install Anyway"</strong>. You can inspect the source code anytime on our public GitHub repository.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-wrapper-node">
+                <button class="faq-trigger-tab">
+                    <span>How do I receive updates?</span>
+                    <i class="fas fa-chevron-down faq-icon-marker"></i>
+                </button>
+                <div class="faq-content-panel">
+                    <div class="faq-content-inner">
+                        Whenever a new release is published to GitHub, you can download the new APK from our <a href="releases.html" style="color: #ffffff; text-decoration: underline;">Releases Page</a> and install it over your existing app. Your songs, playlists, and cached downloads will be preserved seamlessly.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-wrapper-node">
+                <button class="faq-trigger-tab">
+                    <span>Battery Optimization (MIUI, HyperOS, One UI)?</span>
+                    <i class="fas fa-chevron-down faq-icon-marker"></i>
+                </button>
+                <div class="faq-content-panel">
+                    <div class="faq-content-inner">
+                        To ensure uninterrupted background playback when your screen is locked, go to your phone's <strong>Settings &gt; Apps &gt; TideFlow &gt; Battery</strong> and set it to <strong>"Unrestricted"</strong> or <strong>"No restrictions"</strong>.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 TideFlow Project • Created by <a href="https://github.com/aaravgaming007-dev" target="_blank" rel="noopener" style="color: #ffffff;">Aarav Sharma</a></p>
+        <div class="credits-tag">Based On <a href="https://github.com/vivi-music/vivi-music" target="_blank" rel="noopener">Vivi Music</a> FOSS architecture • Material Design 3</div>
+        <div style="display: flex; justify-content: center; gap: 15px; align-items: center; flex-wrap: wrap; margin-top: 20px;">
+            <a href="https://github.com/aaravgaming007-dev/TideFlow" target="_blank" rel="noopener" class="btn-privacy">GitHub Repo</a>
+            <a href="https://instagram.com/aarav_sharma_sui" target="_blank" rel="noopener" class="btn-privacy">Instagram</a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Releases & Changelogs — TideFlow</title>
+    <meta name="description" content="Download official TideFlow APK releases and view live changelogs automatically synced with GitHub Releases.">
+    <link rel="icon" type="image/jpeg" href="tideflownew.jpg">
+    <link rel="apple-touch-icon" href="tideflownew.jpg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <img src="tideflownew.jpg" alt="TideFlow Logo" class="loader-logo">
+        <div class="wavy-text-container" id="wavy-text-anchor"></div>
+        <div class="loader-progress-matrix-bar">
+            <div class="loader-progress-matrix-fill" id="loaderMatrixProgressBarNode"></div>
+        </div>
+        <p style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #64748b; letter-spacing: 1px;">SYNCING GITHUB RELEASES...</p>
+    </div>
+
+    <div id="scroll-tracker"></div>
+    <div class="ambient-glow"></div>
+    <div id="cursor-glow"></div>
+    <canvas id="tide-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html" class="nav-brand">
+            <img src="tideflownew.jpg" alt="TideFlow Logo" class="nav-logo">
+            <span>TideFlow</span>
+        </a>
+        <div class="nav-links-desktop">
+            <a href="index.html" class="desktop-nav-link">Home</a>
+            <a href="features.html" class="desktop-nav-link">Features</a>
+            <a href="releases.html" class="desktop-nav-link active">Releases</a>
+            <a href="install.html" class="desktop-nav-link">Installation</a>
+            <a href="security.html" class="desktop-nav-link">Security</a>
+        </div>
+        <div class="nav-actions">
+            <a href="https://github.com/aaravgaming007-dev/TideFlow" target="_blank" rel="noopener" class="btn-github-sm">
+                <i class="fab fa-github"></i>
+                <span>GitHub</span>
+            </a>
+            <button class="menu-trigger" aria-label="Open Navigation Drawer">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Side Menu -->
+    <div class="side-menu" id="sideMenu">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <img src="tideflownew.jpg" alt="TideFlow" style="width: 38px; height: 38px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.15);">
+                <h3 style="font-weight: 900; font-size: 1.25rem;">TideFlow Hub</h3>
+            </div>
+            <button class="menu-trigger" style="background: none; border: none; color: inherit; font-size: 1.4rem; cursor: pointer;">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 30px;">
+            <a href="index.html" class="side-link"><i class="fas fa-house"></i> Home</a>
+            <a href="features.html" class="side-link"><i class="fas fa-bolt"></i> Core Features</a>
+            <a href="releases.html" class="side-link active"><i class="fas fa-tags"></i> Releases & Builds</a>
+            <a href="install.html" class="side-link"><i class="fas fa-download"></i> Installation Guide</a>
+            <a href="security.html" class="side-link"><i class="fas fa-shield-halved"></i> Security Registry</a>
+        </div>
+
+        <div style="margin-top: auto;">
+            <a href="https://instagram.com/aarav_sharma_sui" target="_blank" rel="noopener" class="insta-btn">
+                <div>
+                    <strong>Developer Contact</strong>
+                    <p>@aarav_sharma_sui (Instagram)</p>
+                </div>
+                <i class="fab fa-instagram" style="font-size: 1.4rem; color: #ff007f;"></i>
+            </a>
+
+            <a href="https://github.com/aaravgaming007-dev/TideFlow" target="_blank" rel="noopener" class="insta-btn">
+                <div>
+                    <strong>Open Source Repository</strong>
+                    <p>aaravgaming007-dev/TideFlow</p>
+                </div>
+                <i class="fab fa-github" style="font-size: 1.4rem; color: #00f2fe;"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Floating Nav -->
+    <div class="floating-nav">
+        <a href="https://github.com/aaravgaming007-dev/TideFlow" target="_blank" rel="noopener" class="float-icon git" title="GitHub">
+            <i class="fab fa-github"></i>
+        </a>
+        <a href="index.html" class="float-icon" title="Home">
+            <i class="fas fa-house"></i>
+        </a>
+        <button class="float-icon menu-trigger" title="Menu">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+
+    <main class="page-container">
+        
+        <header class="page-header-block">
+            <span class="page-tagline">AUTOMATIC LIVE GITHUB TELEMETRY</span>
+            <h1 class="page-title">Releases & Changelogs</h1>
+            <p class="page-subtitle">
+                Every release is automatically compiled and mirrored directly from the official 
+                <code>aaravgaming007-dev/TideFlow</code> repository. Whenever a new version is published, it appears here instantly.
+            </p>
+        </header>
+
+        <!-- Dynamic GitHub Releases Feed -->
+        <section class="releases-feed-wrapper" id="dynamic-releases-feed">
+            <div style="text-align: center; padding: 60px 20px; color: var(--text-muted); font-family: 'Space Mono', monospace;">
+                <i class="fas fa-circle-notch fa-spin" style="font-size: 2rem; margin-bottom: 15px; color: #ffffff;"></i>
+                <p>Fetching real-time release manifest from GitHub REST API...</p>
+            </div>
+        </section>
+
+        <!-- Release Verification Notice -->
+        <div class="security-registry-card" style="margin-top: 50px;">
+            <h3>Automated Verification & Integrity</h3>
+            <p style="opacity: 0.7; font-size: 0.9rem; margin: 10px 0 20px; line-height: 1.6;">
+                TideFlow packages are cryptographically signed during build generation. You can verify downloaded APK checksums against official GitHub digests on our <a href="security.html" style="color: #ffffff; text-decoration: underline;">Security Page</a>.
+            </p>
+            <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                <a href="security.html" class="btn-github" style="padding: 10px 24px; font-size: 0.85rem;">
+                    <i class="fas fa-fingerprint"></i>
+                    <span>Verify Checksums</span>
+                </a>
+                <a href="install.html" class="btn-discord" style="padding: 10px 24px; font-size: 0.85rem;">
+                    <i class="fas fa-book-open"></i>
+                    <span>Installation Guide</span>
+                </a>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 TideFlow Project • Created by <a href="https://github.com/aaravgaming007-dev" target="_blank" rel="noopener" style="color: #ffffff;">Aarav Sharma</a></p>
+        <div class="credits-tag">Based On <a href="https://github.com/vivi-music/vivi-music" target="_blank" rel="noopener">Vivi Music</a> FOSS architecture • Material Design 3</div>
+        <div style="display: flex; justify-content: center; gap: 15px; align-items: center; flex-wrap: wrap; margin-top: 20px;">
+            <a href="https://github.com/aaravgaming007-dev/TideFlow" target="_blank" rel="noopener" class="btn-privacy">GitHub Repo</a>
+            <a href="https://instagram.com/aarav_sharma_sui" target="_blank" rel="noopener" class="btn-privacy">Instagram</a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

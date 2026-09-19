@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <!-- SEO & Metadata -->
+    <title>TideFlow — High-Performance Ad-Free Android Music Streaming</title>
+    <meta name="description" content="TideFlow is an open-source, ad-free Android music streaming app powered by YouTube Music. Featuring Material You dynamics, live synced lyrics, and offline caching.">
+    <meta name="keywords" content="TideFlow, TideFlow music, ad free music android, YouTube Music client, FOSS music player, open source android music, Material You music app, synced lyrics, offline music">
+    <meta name="author" content="Aarav Sharma">
+    <meta name="theme-color" content="#000000">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="TideFlow — Stream Music Freely | 100% Ad-Free Android Player">
+    <meta property="og:description" content="Stream millions of songs with zero ads and zero tracking. TideFlow is the open-source Android music streaming client powered by YouTube Music.">
+    <meta property="og:image" content="tideflownew.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="tideflownew.jpg">
+    <link rel="apple-touch-icon" href="tideflownew.jpg">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <img src="tideflownew.jpg" alt="TideFlow Logo" class="loader-logo">
+        <div class="wavy-text-container" id="wavy-text-anchor">
+            <!-- Populated via JS -->
+        </div>
+        <div class="loader-progress-matrix-bar">
+            <div class="loader-progress-matrix-fill" id="loaderMatrixProgressBarNode"></div>
+        </div>
+        <p style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #64748b; letter-spacing: 1px;">INITIALIZING CHROME AUDIO ENGINE...</p>
+    </div>
+
+    <!-- Scroll Tracker Bar -->
+    <div id="scroll-tracker"></div>
+
+    <!-- Ambient Metallic Glows -->
+    <div class="ambient-glow"></div>
+    <div id="cursor-glow"></div>
+
+    <!-- Liquid Chrome Soundwave Canvas -->
+    <canvas id="tide-canvas"></canvas>
+
+    <!-- Top Navigation -->
+    <nav>
+        <a href="#" class="nav-brand">
+            <img src="tideflownew.jpg" alt="TideFlow Logo" class="nav-logo">
+            <span>TideFlow</span>
+        </a>
+        <div class="nav-links-desktop">
+            <a href="index.html" class="desktop-nav-link active">Home</a>
+            <a href="features.html" class="desktop-nav-link">Features</a>
+            <a href="releases.html" class="desktop-nav-link">Releases</a>
+            <a href="install.html" class="desktop-nav-link">Installation</a>
+            <a href="security.html" class="desktop-nav-link">Security</a>
+        </div>
+        <div class="nav-actions">
+            <a href="https://github.com/aaravgaming007-dev/TideFlow" target="_blank" rel="noopener" class="btn-github-sm">
+                <i class="fab fa-github"></i>
+                <span>GitHub</span>
+            </a>
+            <button class="menu-trigger" aria-label="Open Navigation Drawer">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Slide-in Side Drawer Menu -->
+    <div class="side-menu" id="sideMenu">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <img src="tideflownew.jpg" alt="TideFlow" style="width: 38px; height: 38px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.15);">
+                <h3 style="font-weight: 900; font-size: 1.25rem;">TideFlow Hub</h3>
+            </div>
+            <button class="menu-trigger" style="background: none; border: none; color: inherit; font-size: 1.4rem; cursor: pointer;">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 30px;">
+            <a href="index.html" class="side-link active"><i class="fas fa-house"></i> Home</a>
+            <a href="features.html" class="side-link"><i class="fas fa-bolt"></i> Core Features</a>
+            <a href="releases.html" class="side-link"><i class="fas fa-tags"></i> Releases & Builds</a>
+            <a href="install.html" class="side-link"><i class="fas fa-download"></i> Installation Guide</a>
+            <a href="security.html" class="side-link"><i class="fas fa-shield-halved"></i> Security Registry</a>
+        </div>
+
+        <div style="margin-top: auto;">
+            <a href="https://instagram.com/aarav_sharma_sui" target="_blank" rel="noopener" class="insta-btn">
+                <div>
+                    <strong>Developer Contact</strong>
+                    <p>@aarav_sharma_sui (Instagram)</p>
+                </div>
+                <i class="fab fa-instagram" style="font-size: 1.4rem; color: #ff007f;"></i>
+            </a>
+
+            <a href="https://github.com/aaravgaming007-dev/TideFlow" target="_blank" rel="noopener" class="insta-btn">
+                <div>
+                    <strong>Open Source Repository</strong>
+                    <p>aaravgaming007-dev/TideFlow</p>
+                </div>
+                <i class="fab fa-github" style="font-size: 1.4rem; color: #00f2fe;"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Floating Bottom Navigation Capsule -->
+    <div class="floating-nav">
+        <a href="https://github.com/aaravgaming007-dev/TideFlow" target="_blank" rel="noopener" class="float-icon git" title="Star on GitHub">
+            <i class="fab fa-github"></i>
+        </a>
+        <a href="#download-container-context" class="float-icon dl-float" title="Direct Download">
+            <i class="fas fa-arrow-down"></i>
+        </a>
+        <button class="float-icon menu-trigger" title="Open Navigation Menu">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="logo-wrapper-hero">
+            <img src="tideflownew.jpg" alt="TideFlow Chrome Logo" class="hero-logo">
+        </div>
+        
+        <div class="scramble-title" id="scramble-target">STREAM MUSIC FREELY. PURE, AD-FREE & FLUID.</div>
+        
+        <h1>RIDE THE WAVE<br><span class="gradient-text-chrome">OF SOUND</span></h1>
+
+        <p class="hero-description">
+            TideFlow is an open-source Android music streaming client powered by YouTube Music.
+            Engineered with dynamic <strong>Material You</strong> styling, real-time synchronized lyrics, 
+            audiophile equalizer controls, and local offline caching.
+        </p>
+
+        <!-- Live Static / Animated Odometer Counter Badge -->
+        <div class="telemetry-wrapper">
+            <div class="static-counter-badge">
+                <i class="fas fa-signal"></i>
+                <span>LIVE TELEMETRY:</span>
+                <strong id="animatedCounterNode" data-target-value="144">144</strong>
+                <small style="opacity: 0.7; font-weight: normal; font-size: 0.75rem;">GITHUB DOWNLOADS</small>
+            </div>
+        </div>
+
+        <!-- Download CTA Engine -->
+        <div id="download-container-context">
+            <a href="https://github.com/aaravgaming007-dev/TideFlow/releases/latest" id="downloadButtonMain" class="btn-chrome-download">
+                <i class="fas fa-download"></i>
+                <span id="downloadBtnTextNode">Get TideFlow v1.0 Beta (Latest APK)</span>
+            </a>
+
+            <div class="download-explainer-card">
+                <div class="download-btn-caption">
+                    ⚡ Verified direct APK package compiled directly from GitHub Releases.
+                </div>
+                <div class="download-verification-instructions">
+                    Target: Android 8.0+ • Size: <span id="apk-size-label">~27.8 MB</span> • Build: <span id="release-tag-label" style="color: var(--accent-blue);">v1.0-beta</span>
+                </div>
+            </div>
+
+            <div class="security-audit-advisory">
+                <span>[SECURITY_AUDIT]</span> SHA-256 Checksum: <code id="checksum-hero">70deb5b6a835e920777eaa09be37cf76d920b3e271c274a40f776576f4ccbb3e</code>
+            </div>
+        </div>
+
+        <!-- Hero Buttons Group -->
+        <div class="hero-buttons">
+            <a href="https://github.com/aaravgaming007-dev/TideFlow" target="_blank" rel="noopener" class="btn-github">
+                <i class="fab fa-github"></i>
+                <span>View Source Code</span>
+            </a>
+            <a href="https://github.com/aaravgaming007-dev/TideFlow/releases" target="_blank" rel="noopener" class="btn-discord">
+                <i class="fas fa-tags"></i>
+                <span>All Releases</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Bento Grid Feature Showcase -->
+    <section class="bento-section reveal" id="features">
+        <h2 class="workspace-title" style="margin-top: 0; margin-bottom: 30px;">Core Engineering Architecture</h2>
+        
+        <div class="bento-grid">
+            
+            <div class="bento-card wide">
+                <i class="fas fa-ban" style="color: #ff007f; text-shadow: 0 0 15px rgba(255, 0, 127, 0.4);"></i>
+                <h3>100% Ad-Free Streaming Engine</h3>
+                <p>Enjoy millions of tracks, albums, and podcasts sourced directly from YouTube Music without a single video ad, sponsor interruption, or promotional prompt. Built for pure listening immersion.</p>
+            </div>
+
+            <div class="bento-card">
+                <i class="fas fa-palette" style="color: #ffffff; text-shadow: 0 0 15px rgba(255, 255, 255, 0.6);"></i>
+                <h3>Material You Dynamic Theming</h3>
+                <p>Adapts fluidly to your Android device wallpaper palettes, featuring true OLED pitch blacks and neon ocean aqua accents.</p>
+            </div>
+
+            <div class="bento-card">
+                <i class="fas fa-microphone-lines" style="color: #00f2fe; text-shadow: 0 0 15px rgba(0, 242, 254, 0.4);"></i>
+                <h3>Real-Time Synchronized Lyrics</h3>
+                <p>Automated timestamp-accurate LRC lyrics engine that scrolls smoothly word-for-word so you can sing along karaoke-style.</p>
+            </div>
+
+            <div class="bento-card wide">
+                <i class="fas fa-bolt" style="color: #ffffff; text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);"></i>
+                <h3>High-Performance Audio Pipeline</h3>
+                <p>Processes audio streams on a dedicated background thread with low latency and zero UI stutter. Powered by optimized hardware-accelerated codecs (AAC / Opus) for crystal-clear fidelity.</p>
+            </div>
+
+            <div class="bento-card">
+                <i class="fas fa-cloud-arrow-down" style="color: #00ff88; text-shadow: 0 0 15px rgba(0, 255, 136, 0.4);"></i>
+                <h3>Offline Vault & Caching</h3>
+                <p>Download favorite songs, albums, and entire playlists straight to local device storage for uninterrupted playback when offline.</p>
+            </div>
+
+            <div class="bento-card">
+                <i class="fas fa-sliders" style="color: #00c6ff; text-shadow: 0 0 15px rgba(0, 198, 255, 0.4);"></i>
+                <h3>Equalizer Presets & Gapless</h3>
+                <p>Fine-tune audio frequencies with custom equalizer curves, bass boost, and smooth gapless track transitions across playlists.</p>
+            </div>
+
+            <div class="bento-card wide">
+                <i class="fas fa-shield-halved" style="color: #00ff88; text-shadow: 0 0 15px rgba(0, 255, 136, 0.4);"></i>
+                <h3>Local Sandbox & Zero Telemetry</h3>
+                <p>No tracking matrices, no telemetry nodes, no data mining. Your playlists, history, and downloads stay securely within standard Android sandbox storage on your physical device.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Upstream Open-Source Tribute Banner -->
+    <section class="reveal" style="padding: 20px 5%;">
+        <div class="credits-tribute-banner">
+            <div class="tribute-icon-box">
+                <i class="fas fa-heart-pulse"></i>
+            </div>
+            <div class="tribute-info">
+                <h3>Special Thanks to Vivi Music & The FOSS Community</h3>
+                <p>TideFlow is proud to build upon the vibrant open-source ecosystem. Our core audio playback foundation is forked and heavily optimized from the outstanding <a href="https://github.com/vivi-music/vivi-music" target="_blank" rel="noopener">Vivi Music repository</a>. We extend our immense gratitude to the open-source community whose dedication makes transparent, privacy-first software possible worldwide.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security & Verification Registry -->
+    <h2 class="workspace-title reveal" id="security">Security & Verification Registry</h2>
+    <section class="reveal">
+        <div class="security-registry-card">
+            <h3>Package Transparency Manifest</h3>
+            <p style="opacity: 0.6; font-size: 0.9rem; margin-top: 5px;">TideFlow enforces absolute device safety. Standalone binary distributions are compiled cleanly with zero hidden trackers.</p>
+            
+            <div class="registry-grid-row">
+                <div class="registry-item">
+                    <h4><i class="fas fa-shield" style="color: #00ff88;"></i> Storage Boundary Integrity</h4>
+                    <p>Scoped exclusively to manage cached music and offline files within the app sandbox. Zero unauthorized file scanning.</p>
+                </div>
+                <div class="registry-item">
+                    <h4><i class="fas fa-network-wired" style="color: #00f2fe;"></i> Direct Audio Endpoints</h4>
+                    <p>Network connectivity is strictly used to fetch audio streams, lyrics, and metadata. No analytics telemetry is gathered.</p>
+                </div>
+                <div class="registry-item">
+                    <h4><i class="fas fa-check-circle" style="color: #ffffff;"></i> Play Protect Verified</h4>
+                    <p>Clean open-source architecture adhering directly to standard Android sandboxing and runtime security specifications.</p>
+                </div>
+            </div>
+            
+            <!-- Clickable Copyable Checksum Bar -->
+            <div onclick="copyHashToClipboard()" class="checksum-click-bar">
+                <div style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 90%;">
+                    SHA-256 Checksum: <span id="hashText">70deb5b6a835e920777eaa09be37cf76d920b3e271c274a40f776576f4ccbb3e</span>
+                </div>
+                <i id="hashCopyIcon" class="fa-regular fa-copy" style="color: #64748b; font-size: 0.85rem; margin-left: 15px;"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Documentation & Installation Walkthrough -->
+    <h2 class="workspace-title reveal" id="install">Installation Walkthrough</h2>
+    <section class="reveal" style="padding: 10px 5% 40px; max-width: 1000px; margin: 0 auto;">
+        <div class="walkthrough-box">
+            <div class="step-row">
+                <div class="step-num">01</div>
+                <div class="step-info">
+                    <h4>Download the APK</h4>
+                    <p>Click the download button to get the latest signed <code>TideFlow-V1-Beta.apk</code> binary package directly from GitHub Releases.</p>
+                </div>
+            </div>
+            <div class="step-row">
+                <div class="step-num">02</div>
+                <div class="step-info">
+                    <h4>Authorize Installation</h4>
+                    <p>When prompted by Android, permit "Install Unknown Apps" in your browser or file manager settings to complete installation.</p>
+                </div>
+            </div>
+            <div class="step-row">
+                <div class="step-num">03</div>
+                <div class="step-info">
+                    <h4>Launch & Stream</h4>
+                    <p>Open TideFlow and start searching, streaming, or caching your favorite music immediately with zero ads and zero setup hurdles.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Developer Profile Section -->
+    <h2 class="team-heading reveal">DEVELOPED BY</h2>
+    <section class="team-grid reveal" style="display: flex; justify-content: center; width: 100%;">
+        <div class="card-wrapper lead-wrapper" style="max-width: 500px; width: 100%;">
+            <div class="card" style="background: linear-gradient(135deg, rgba(8, 8, 10, 0.85) 0%, rgba(255, 255, 255, 0.04) 100%); border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6); text-align: center; padding: 40px 30px; position: relative;">
+                <img src="tideflownew.jpg" alt="Aarav Sharma Logo" style="width: 80px; height: 80px; object-fit: cover; border-radius: 20px; margin: 0 auto 20px; filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.3)); display: block; border: 1px solid rgba(255,255,255,0.2);">
+                <div class="name lead-name" style="font-size: 1.8rem; font-weight: 900; background: linear-gradient(135deg, #ffffff, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 5px;">Aarav Sharma</div>
+                <div class="role-tag" style="background: rgba(255, 255, 255, 0.08); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.2); padding: 4px 14px; border-radius: 50px; font-size: 0.72rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; display: inline-block; margin-bottom: 25px;">Lead Developer & Creator</div>
+                <p style="font-size: 0.9rem; color: #a1a1aa; line-height: 1.6; margin-bottom: 25px; font-weight: 400;">Passionate open-source developer creating high-performance, aesthetically pleasing, and privacy-respecting Android audio tools.</p>
+                <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+                    <a href="https://github.com/aaravgaming007-dev" target="_blank" rel="noopener" class="dev-insta">
+                        <i class="fab fa-github" style="color: #ffffff;"></i> @aaravgaming007-dev
+                    </a>
+                    <a href="https://instagram.com/aarav_sharma_sui" target="_blank" rel="noopener" class="dev-insta">
+                        <i class="fab fa-instagram" style="color: #ff007f;"></i> @aarav_sharma_sui
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Diagnostics Terminal Section -->
+    <h2 class="workspace-title reveal" id="terminal">System Diagnostics Terminal</h2>
+    <section class="terminal-container reveal">
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <div class="terminal-dot" style="background: #ff5f56;"></div>
+                <div class="terminal-dot" style="background: #ffbd2e;"></div>
+                <div class="terminal-dot" style="background: #27c93f;"></div>
+                <div class="terminal-title">diagnostics@tideflow:~</div>
+            </div>
+            <div class="system-terminal" id="linux-terminal">
+                <!-- Autotyped via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Accordion Section -->
+    <h2 class="workspace-title reveal" id="faq">Frequently Asked Questions</h2>
+    <section class="reveal FAQ-section" style="padding: 20px 0 40px;">
+        <div class="faq-container-block">
+            
+            <div class="faq-wrapper-node">
+                <button class="faq-trigger-tab">
+                    <span>What is TideFlow?</span>
+                    <i class="fas fa-chevron-down faq-icon-marker"></i>
+                </button>
+                <div class="faq-content-panel">
+                    <div class="faq-content-inner">
+                        TideFlow is an open-source, ad-free Android music streaming client powered by YouTube Music, designed with fluid Material You theming, live synced lyrics, and offline downloads.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-wrapper-node">
+                <button class="faq-trigger-tab">
+                    <span>Is TideFlow completely free to use?</span>
+                    <i class="fas fa-chevron-down faq-icon-marker"></i>
+                </button>
+                <div class="faq-content-panel">
+                    <div class="faq-content-inner">
+                        Yes, 100% free and open-source. There are no subscriptions, no locked tiers, and zero embedded ads.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-wrapper-node">
+                <button class="faq-trigger-tab">
+                    <span>Do I need a YouTube Premium account?</span>
+                    <i class="fas fa-chevron-down faq-icon-marker"></i>
+                </button>
+                <div class="faq-content-panel">
+                    <div class="faq-content-inner">
+                        No YouTube Premium or Google account is required. You can start streaming immediately after installing.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-wrapper-node">
+                <button class="faq-trigger-tab">
+                    <span>How do offline downloads work?</span>
+                    <i class="fas fa-chevron-down faq-icon-marker"></i>
+                </button>
+                <div class="faq-content-panel">
+                    <div class="faq-content-inner">
+                        TideFlow caches selected audio tracks directly to your device storage with full metadata and album artwork for uninterrupted listening with no internet connection.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-wrapper-node">
+                <button class="faq-trigger-tab">
+                    <span>How can I report bugs or submit feature suggestions?</span>
+                    <i class="fas fa-chevron-down faq-icon-marker"></i>
+                </button>
+                <div class="faq-content-panel">
+                    <div class="faq-content-inner">
+                        You can open an issue on our <a href="https://github.com/aaravgaming007-dev/TideFlow/issues" target="_blank" rel="noopener" style="color: var(--accent-blue);">GitHub Issues Tracker</a> or message Aarav Sharma directly on Instagram at <code>@aarav_sharma_sui</code>.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 TideFlow Project • Created by <a href="https://github.com/aaravgaming007-dev" target="_blank" rel="noopener" style="color: #ffffff;">Aarav Sharma</a></p>
+        <div class="credits-tag">Based On <a href="https://github.com/vivi-music/vivi-music" target="_blank" rel="noopener">Vivi Music</a> FOSS architecture • Material Design 3</div>
+        <div style="display: flex; justify-content: center; gap: 15px; align-items: center; flex-wrap: wrap; margin-top: 20px;">
+            <a href="https://github.com/aaravgaming007-dev/TideFlow" target="_blank" rel="noopener" class="btn-privacy">GitHub Repo</a>
+            <a href="https://github.com/aaravgaming007-dev/TideFlow/releases" target="_blank" rel="noopener" class="btn-privacy">Releases</a>
+            <a href="https://instagram.com/aarav_sharma_sui" target="_blank" rel="noopener" class="btn-privacy">Instagram</a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
