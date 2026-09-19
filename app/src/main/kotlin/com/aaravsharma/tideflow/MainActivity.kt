@@ -1,4 +1,4 @@
-﻿/*
+/*
  * NomaTune (2026)
  * © Shahdullah — github.com/shahdullah
  * GPL-3.0 License | Contributors: see git history
@@ -46,6 +46,7 @@ import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.slideInHorizontally
 import androidx.compose.animation.slideOutHorizontally
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.focusGroup
 import androidx.compose.foundation.clickable
@@ -58,6 +59,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.WindowInsetsSides
 import androidx.compose.foundation.layout.add
@@ -297,7 +299,6 @@ import com.aaravsharma.tideflow.utils.reportException
 import com.aaravsharma.tideflow.utils.setAppLocale
 import com.aaravsharma.tideflow.viewmodels.HomeViewModel
 import com.aaravsharma.tideflow.viewmodels.NetworkBannerViewModel
-import com.aaravsharma.tideflow.viewmodels.NewsViewModel
 import java.util.Locale
 import javax.inject.Inject
 import kotlin.random.Random
@@ -793,11 +794,9 @@ class MainActivity : ComponentActivity() {
                     val coroutineScope = rememberCoroutineScope()
                     val homeViewModel: HomeViewModel = hiltViewModel()
                     val networkBannerViewModel: NetworkBannerViewModel = hiltViewModel()
-                    val newsViewModel: NewsViewModel = hiltViewModel()
                     val allLocalItems by homeViewModel.allLocalItems.collectAsState()
                     val allYtItems by homeViewModel.allYtItems.collectAsState()
                     val networkBannerState by networkBannerViewModel.bannerState.collectAsStateWithLifecycle()
-                    val hasUnreadNews by newsViewModel.hasUnreadNews.collectAsStateWithLifecycle()
                     val navBackStackEntry by navController.currentBackStackEntryAsState()
                     val (previousTab) = rememberSaveable { mutableStateOf("home") }
                     val currentRoute = navBackStackEntry?.destination?.route
@@ -1518,13 +1517,14 @@ class MainActivity : ComponentActivity() {
                                                 title = {
                                                     Row(verticalAlignment = Alignment.CenterVertically) {
                                                         // app icon
-                                                        Icon(
-                                                            painter = painterResource(R.drawable.about_appbar_tight),
+                                                        Image(
+                                                            painter = painterResource(R.drawable.about_splash_img),
                                                             contentDescription = null,
                                                             modifier = Modifier
-                                                                .size(28.dp)
-                                                                .padding(end = 6.dp)
+                                                                .size(32.dp)
+                                                                .clip(CircleShape)
                                                         )
+                                                        Spacer(Modifier.width(10.dp))
                                                         Text(
                                                             text = stringResource(R.string.app_name),
                                                             style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Bold),
@@ -1539,39 +1539,6 @@ class MainActivity : ComponentActivity() {
                                                             painter = painterResource(R.drawable.history),
                                                             contentDescription = stringResource(R.string.history)
                                                         )
-                                                    }
-                                                    TooltipBox(
-                                                        positionProvider = if (hasUnreadNews)
-                                                            TooltipDefaults.rememberRichTooltipPositionProvider()
-                                                        else
-                                                            TooltipDefaults.rememberPlainTooltipPositionProvider(),
-                                                        tooltip = {
-                                                            if (hasUnreadNews) {
-                                                                RichTooltip(
-                                                                    title = { Text(stringResource(R.string.news_tooltip_title)) },
-                                                                ) {
-                                                                    Text(stringResource(R.string.news_tooltip_body))
-                                                                }
-                                                            } else {
-                                                                PlainTooltip {
-                                                                    Text(stringResource(R.string.news))
-                                                                }
-                                                            }
-                                                        },
-                                                        state = rememberTooltipState(),
-                                                    ) {
-                                                        IconButton(onClick = { navController.navigate("news") }) {
-                                                            BadgedBox(badge = {
-                                                                if (hasUnreadNews) {
-                                                                    Badge()
-                                                                }
-                                                            }) {
-                                                                Icon(
-                                                                    painter = painterResource(R.drawable.newspaper),
-                                                                    contentDescription = stringResource(R.string.news)
-                                                                )
-                                                            }
-                                                        }
                                                     }
                                                     IconButton(onClick = { navController.navigate("new_release") }) {
                                                         Icon(

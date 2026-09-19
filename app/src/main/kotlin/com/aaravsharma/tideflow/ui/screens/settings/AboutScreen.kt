@@ -214,13 +214,6 @@ fun AboutScreen(
         website = "https://aaravsharma.pages.dev",
         instagram = "https://instagram.com/aarav_sharma_sui"
     )
-    val baseFramework = TeamMember(
-        avatarModel = "https://avatars.githubusercontent.com/u/107134739?v=4",
-        name = "Rukamori",
-        position = stringResource(R.string.about_position_archivetune),
-        profileUrl = "https://github.com/rukamori/ArchiveTune",
-        github = "https://github.com/rukamori/ArchiveTune"
-    )
 
     Scaffold(
         topBar = {
@@ -480,22 +473,6 @@ fun AboutScreen(
 
             LeadDeveloperCard(
                 member = leadDeveloper,
-                onOpenUri = { url -> openSafeUri(context, url) },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp)
-            )
-            Spacer(Modifier.height(24.dp))
-
-            SectionHeader(
-                title = stringResource(R.string.about_base_framework),
-                modifier = Modifier.padding(horizontal = 16.dp)
-            )
-
-            Spacer(Modifier.height(8.dp))
-
-            LeadDeveloperCard(
-                member = baseFramework,
                 onOpenUri = { url -> openSafeUri(context, url) },
                 modifier = Modifier
                     .fillMaxWidth()

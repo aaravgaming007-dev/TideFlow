@@ -1,13 +1,11 @@
-<vector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt"
-      android:viewportWidth="512"
-      android:viewportHeight="512"
-      android:width="512dp"
-      android:height="512dp">
-      <path
-          android:pathData="M237 192L262 197L254 220L293.5 220L298.5 219L314 227L314 230.5L309 243.5Q299.1 265.6 286 284.5L301 295L301 298.5L286.5 318Q262.2 296 230 283L232 277.5L243.5 263L264.5 272Q274.9 258.3 281 242L244.5 242L243 243.5Q231.5 268.5 212.5 286Q203.1 278.1 191 274Q189.9 271.3 192.5 272Q224.2 240.9 237 192Z"
-          android:fillColor="#FFFFFF"
-          android:fillAlpha="0.9607843"
-          android:strokeColor="#FFFFFF"
-          android:strokeAlpha="0.9607843"
-          android:strokeWidth="1" />
-  </vector>
+﻿<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="512"
+    android:viewportHeight="512">
+    <path
+        android:pathData="M257.4 218.3 L245.0 221.0 L236.8 234.7 L216.2 361.0 L210.7 359.6 L203.8 310.2 L192.9 296.5 L181.9 297.9 L175.0 304.7 L161.3 336.3 L150.3 330.8 L143.5 330.8 L136.6 336.3 L136.6 343.2 L164.0 362.4 L175.0 356.9 L181.9 339.0 L188.7 340.4 L197.0 409.0 L201.1 421.4 L210.7 429.6 L221.7 426.9 L229.9 413.2 L251.9 280.0 L257.4 282.8 L268.4 384.3 L276.6 402.2 L286.2 404.9 L297.2 396.7 L312.3 329.4 L317.8 329.4 L324.6 350.0 L335.6 358.3 L345.2 356.9 L356.2 348.6 L367.2 348.6 L374.0 343.2 L372.7 333.5 L364.4 329.4 L348.0 333.5 L339.7 332.2 L331.5 302.0 L326.0 292.4 L317.8 286.9 L310.9 286.9 L302.7 292.4 L288.9 334.9 L283.5 333.5 L271.1 236.1 L265.6 223.7 Z M117.4 146.9 L91.3 197.7 L85.8 258.1 L61.1 278.6 L46.0 314.3 L50.1 361.0 L63.8 384.3 L91.3 407.7 L116.0 410.4 L127.0 400.8 L127.0 256.7 L116.0 248.5 L117.4 221.0 L125.6 196.3 L143.5 167.5 L162.7 148.3 L194.2 129.0 L224.4 119.4 L269.7 118.1 L312.3 129.0 L357.6 159.2 L379.5 188.1 L394.6 248.5 L383.6 256.7 L385.0 406.3 L404.2 411.8 L426.2 404.9 L460.5 366.5 L464.6 343.2 L460.5 300.6 L449.5 280.0 L424.8 259.4 L423.5 219.6 L413.8 182.6 L390.5 144.1 L356.2 112.6 L299.9 86.5 L235.4 81.0 L176.4 97.5 Z"
+        android:fillColor="#FFFFFF"
+        android:fillType="evenOdd" />
+</vector>
+
